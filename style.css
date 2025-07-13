@@ -274,6 +274,31 @@ p {
     color: white;
 }
 
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 8px;
+    border-radius: 6px;
+    background: #24292e;
+    color: white;
+    border: 1px solid #24292e;
+    transition: all 0.2s ease;
+}
+
+.github-link:hover {
+    background: #1a1e22;
+    border-color: #1a1e22;
+    transform: translateY(-1px);
+}
+
+.github-link svg {
+    width: 16px;
+    height: 16px;
+}
+
 .project-header {
     display: flex;
     justify-content: space-between;
