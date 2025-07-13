@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mahmood Seoud - Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="profile-section">
+          <div class="profile-image">
+            <img
+              src="assets/profile.jpeg"
+              alt="Mahmood Seoud"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="hero-text">
+            <h1>Mahmood Seoud</h1>
+            <p class="subtitle">
+              MSc Computer Science Student | Consultant at PeopleNet
+            </p>
+            <p class="location">Copenhagen, Denmark</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="about">
+        <h2>About</h2>
+        <p>
+          I'm a 24-year-old MSc Computer Science student at ITU with a passion
+          for Machine Learning, AI, technology, sports, and finance. Currently
+          working at
+          <a href="https://peoplenet.dk/" target="_blank">PeopleNet</a> as a
+          consultant in Copenhagen.
+        </p>
+        <p>
+          Co-founder of SysMentor, creating interactive learning simulations for
+          Computer Systems students. Volunteer embedded systems developer at
+          <a href="https://discosat.dk/" target="_blank">DISCOSAT</a>, working
+          on CubeSat technology.
+        </p>
+      </section>
+
+      <section class="experience">
+        <h2>Technical Experience</h2>
+
+        <div class="job">
+          <div class="job-header">
+            <h3>DISCOSAT / DISCO Project</h3>
+            <span class="date">February 2023 – Present</span>
+          </div>
+          <p class="role">
+            Embedded Systems Developer (Volunteer) | Copenhagen, Denmark
+          </p>
+          <div class="job-description">
+            <ul>
+              <li>
+                Developed a C-based camera controller for CubeSat optical
+                sensors, implementing System V IPC mechanisms (shared memory and
+                message queues) to capture and process raw BayerRG image data
+                from visible and IR cameras, with CSP parameter integration for
+                remote Earth-based control and real-time telemetry feedback.
+              </li>
+              <li>
+                Built and maintained a Yocto-based Linux OS for CubeSats,
+                optimizing boot time and reducing system overhead for
+                space-ready deployment.
+              </li>
+            </ul>
+          </div>
+          <div class="project-links">
+            <a href="https://discosat.dk/" target="_blank" class="project-link"
+              >DISCOSAT Website</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="projects">
+        <h2>Featured Projects</h2>
+
+        <div class="project featured santa-project">
+          <div class="project-header">
+            <h3>Santa Claus Problem - Distributed Systems Implementation</h3>
+            <div class="project-tags">
+              <span class="tag">Bachelor Thesis</span>
+              <span class="tag">Distributed Systems</span>
+              <span class="tag">Python</span>
+            </div>
+          </div>
+
+          <div class="project-banner">
+            <img
+              src="./assets/cache-demo.gif"
+              alt="Santa Claus Problem Demo"
+              class="santa-gif"
+              onerror="this.style.display='none'"
+            />
+          </div>
+
+          <div class="project-badges">
+            <a
+              href="https://easychair.org/publications/paper/Gv4N"
+              target="_blank"
+            >
+              <img
+                src="https://img.shields.io/badge/Paper-EasyChair-blue"
+                alt="Paper"
+              />
+            </a>
+            <a href="https://www.python.org/" target="_blank">
+              <img
+                src="https://img.shields.io/badge/Python-3.8%2B-blue"
+                alt="Python"
+              />
+            </a>
+            <a href="#" target="_blank">
+              <img
+                src="https://img.shields.io/badge/License-MIT-yellow.svg"
+                alt="License"
+              />
+            </a>
+          </div>
+
+          <p>
+            Implementation for my Bachelor Thesis at University of Copenhagen
+            (DIKU) exploring distributed systems concepts through the classic
+            Santa Claus Problem. Features both non-distributed and distributed
+            solutions with comprehensive analysis and performance evaluation.
+          </p>
+
+          <div class="features-grid">
+            <div class="feature">
+              <h4>High-Performance Synchronization</h4>
+              <p>
+                Efficient process coordination using semaphores and network
+                protocols
+              </p>
+            </div>
+            <div class="feature">
+              <h4>Dual Implementation</h4>
+              <p>
+                Both non-distributed (multiprocess) and distributed
+                (network-based) solutions
+              </p>
+            </div>
+            <div class="feature">
+              <h4>Comprehensive Analysis</h4>
+              <p>
+                Built-in timing, performance metrics, and visual analysis tools
+              </p>
+            </div>
+          </div>
+
+          <div class="project-links">
+            <a
+              href="https://github.com/MahmoodSeoud/BachelorThesis"
+              target="_blank"
+              class="project-link primary"
+            >
+              View Repository
+            </a>
+            <a
+              href="https://easychair.org/publications/paper/Gv4N"
+              target="_blank"
+              class="project-link"
+            >
+              Read Paper
+            </a>
+          </div>
+        </div>
+
+        <div class="project featured">
+          <div class="project-header">
+            <h3>SysMentor</h3>
+            <div class="project-tags">
+              <span class="tag">Education</span>
+              <span class="tag">Startup</span>
+            </div>
+          </div>
+          <p>
+            Co-founded startup with
+            <a href="https://github.com/Nidocq" target="_blank">Nidocq</a>,
+            creating interactive learning simulations for Computer Systems
+            students.
+          </p>
+
+          <div class="sub-projects">
+            <div class="sub-project">
+              <h4>Cache-Hit-Miss Simulator</h4>
+              <div class="media-container">
+                <img
+                  src="assets/cache-demo.gif"
+                  alt="Cache Hit Miss Demo"
+                  class="project-gif"
+                  onerror="this.style.display='none'"
+                />
+              </div>
+              <p>
+                Interactive learning simulator for Computer Systems students to
+                explore cache memory concepts through simulations and exercises.
+                Features exam digitalization and configurable parameters for
+                different cache configurations.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/MahmoodSeoud/cache-hit-miss"
+                  target="_blank"
+                  class="project-link"
+                  >View Code</a
+                >
+                <a
+                  href="assets/Virksomhedsprojekt_2023.pdf"
+                  target="_blank"
+                  class="project-link"
+                  >Project Report</a
+                >
+              </div>
+            </div>
+
+            <div class="sub-project">
+              <h4>VMAT - Virtual Memory Address Translation</h4>
+              <div class="media-container">
+                <img
+                  src="assets/vmat-demo.gif"
+                  alt="VMAT Demo"
+                  class="project-gif"
+                  onerror="this.style.display='none'"
+                />
+              </div>
+              <p>
+                Interactive simulator for virtual memory address translation
+                with configurable page sizes, memory management schemes, and
+                step-by-step visualization. Digitally recreates computer systems
+                exams for practice.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/MahmoodSeoud/VMAT"
+                  target="_blank"
+                  class="project-link"
+                  >View Code</a
+                >
+                <a
+                  href="assets/Virksomhedsprojekt_2023.pdf"
+                  target="_blank"
+                  class="project-link"
+                  >Project Report</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-header">
+            <h3>Research Publication</h3>
+            <div class="project-tags">
+              <span class="tag">Research</span>
+              <span class="tag">Networking</span>
+            </div>
+          </div>
+          <p>
+            "Bluetooth Mesh Grid Networks" - Published research on mesh
+            networking technologies and applications.
+          </p>
+          <div class="project-links">
+            <a
+              href="https://easychair.org/publications/paper/Gv4N"
+              target="_blank"
+              class="project-link"
+              >Read Paper</a
+            >
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
