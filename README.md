@@ -16,7 +16,7 @@ My personal portfolio website showcasing my technical experience, projects, and 
 
 ## Live Site
 
-Visit the portfolio at: [Your GitHub Pages URL will go here]
+Visit the portfolio at: https://mahmoodseoud.github.io/mahmoodseoud.me/
 
 ## Local Development
 
