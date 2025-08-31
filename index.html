@@ -3,577 +3,312 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Mahmood Seoud - MSc Computer Science Student and Consultant specializing in Machine Learning, AI, and distributed systems" />
+    <meta name="description" content="Mahmood Seoud - Computer Science Student & Researcher specializing in Space Technology and AI" />
     <meta name="author" content="Mahmood Seoud" />
-    <title>Mahmood Seoud - Personal Portfolio</title>
+    <title>Mahmood Seoud</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <!-- Dark Mode Toggle -->
-    <div class="theme-toggle">
-      <button id="theme-toggle-btn" aria-label="Toggle dark mode">
-        <svg class="sun-icon" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.464a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707z"/>
-        </svg>
-        <svg class="moon-icon" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" style="display: none;">
-          <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
-        </svg>
-      </button>
-    </div>
-    
-    <div class="container">
-      <header>
-        <div class="profile-section">
-          <div class="profile-image">
-            <img
-              src="assets/profile.jpeg"
-              alt="Mahmood Seoud"
-              onerror="this.style.display='none'"
-            />
-          </div>
-          <div class="hero-text">
-            <h1>Mahmood Seoud</h1>
-            <p class="subtitle">
-              MSc Computer Science Student | Consultant at PeopleNet
-            </p>
-            <p class="location">Copenhagen, Denmark</p>
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="nav-container">
+        <div class="nav-left">
+          <a href="#about" class="logo">MS</a>
+        </div>
+        <div class="nav-right">
+          <a href="#about">About</a>
+          <a href="#education">Education</a>
+          <a href="#projects">Projects</a>
+          <a href="#publications">Publications</a>
+          <a href="#experience">Experience</a>
+          <a href="assets/resume.pdf" target="_blank" class="resume-link">Resume</a>
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+            <span class="theme-icon">◐</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Hi, I'm <span class="highlight">Mahmood Seoud</span></h1>
+          <p class="hero-subtitle">Space Technology & AI Developer</p>
+          <p class="hero-description">
+            I develop software solutions at the intersection of space technology and artificial intelligence. Currently building 
+            satellite camera controllers for Denmark's CubeSat missions while pursuing my MSc at ITU Copenhagen. 
+            My work spans embedded systems, AI automation, and computer vision applications.
+          </p>
+          <div class="hero-links">
+            <a href="mailto:Mahmoodseoud@gmail.com" class="hero-link">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+              </svg>
+              Email
+            </a>
+            <a href="https://www.linkedin.com/in/mahmoodmohammedseoud/" target="_blank" class="hero-link">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+              </svg>
+              LinkedIn
+            </a>
+            <a href="https://github.com/MahmoodSeoud" target="_blank" class="hero-link">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+              </svg>
+              GitHub
+            </a>
           </div>
         </div>
-      </header>
-
-      <section class="about">
-        <h2>About</h2>
-        <p>
-          I'm a 24-year-old MSc Computer Science student at IT University of Copenhagen with a passion for embedded systems, AI-driven applications, and cloud-based solutions. Passionate about space technology and robotics, with a focus on building scalable, real-world systems using Linux, Yocto, and modern development stacks.
-        </p>
-        <p>
-          Currently working as a Software Developer at <a href="https://peoplenet.dk/" target="_blank">PeopleNet A/S</a> in Copenhagen, where I design and deploy AI-powered solutions that save thousands of DKK per month. Previously gained hands-on experience in digital fabrication and rapid prototyping through specialized coursework.
-        </p>
-        <p>
-          Creator of SysMentor with <a href="https://github.com/Nidocq" target="_blank">Nidocq</a>, developing interactive learning simulations for Computer Systems education. Volunteer embedded systems developer at <a href="https://discosat.dk/" target="_blank">DISCOSAT</a>, working on CubeSat optical sensor technology and Yocto-based Linux systems for space deployment.
-        </p>
-        
-        <div class="about-links">
-          <a href="assets/resume.pdf" target="_blank" class="about-link resume-link">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-              <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-            </svg>
-            Download Resume
-          </a>
-          <a href="https://linkedin.com/in/mahmoodseoud" target="_blank" class="about-link linkedin-link">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
-            </svg>
-            LinkedIn Profile
-          </a>
+        <div class="hero-image">
+          <img src="assets/mahmood-seoud-profile-photo.jpeg" alt="Mahmood Seoud" class="profile-img" />
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="education">
-        <h2>Education</h2>
+    <!-- Education Section -->
+    <section id="education" class="section">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
         
-        <div class="education-item">
-          <div class="education-header">
-            <div class="education-icon">
-              <img src="assets/itu-logo-short.jpg" alt="IT University of Copenhagen" onerror="this.style.display='none'" />
+        <div class="education-grid">
+          <div class="education-item">
+            <div class="education-logo">
+              <img src="assets/sdulogo-black.png" alt="University of Southern Denmark" onerror="this.style.display='none'" />
             </div>
-            <div class="education-details">
-              <h3>Master's in Computer Science</h3>
+            <div class="education-content">
+              <h3><a href="https://robotelite.sdu.dk/" target="_blank" class="institution-link">Elite Robotics Summer School</a></h3>
+              <p class="institution">University of Southern Denmark</p>
+              <p class="duration">3 weeks intensive program • August 2025</p>
+              <p class="description">
+                International elite robotics program bringing together 50 top students from world-leading universities across 5 continents. 
+                Focused on collaborative industrial robots, advanced algorithms for mobile robots and robot manipulators, with hands-on 
+                experience in robotics system design for industrial manufacturing, service robotics, and medical applications. 
+                Combined technical excellence with entrepreneurship in Denmark's robotics hub.
+              </p>
+            </div>
+          </div>
+          
+          <div class="education-item">
+            <div class="education-logo">
+              <img src="assets/itu-copenhagen-logo-compact.jpg" alt="IT University of Copenhagen" onerror="this.style.display='none'" />
+            </div>
+            <div class="education-content">
+              <h3><a href="https://www.itu.dk/" target="_blank" class="institution-link">MSc Computer Science</a></h3>
               <p class="institution">IT University of Copenhagen</p>
               <p class="duration">July 2024 - June 2026</p>
-              <p class="advisor">Master's degree program, 2nd semester</p>
-              <p class="description">Gaining hands-on experience in digital fabrication and rapid prototyping through courses.</p>
+              <p class="description">
+                Advanced studies in distributed systems, artificial intelligence, and software engineering 
+                with focus on space technology applications and real-world AI solutions. Gaining hands-on 
+                experience in digital fabrication and rapid prototyping through specialized coursework.
+              </p>
             </div>
           </div>
-        </div>
-
-        <div class="education-item">
-          <div class="education-header">
-            <div class="education-icon">
+          
+          <div class="education-item">
+            <div class="education-logo">
               <img 
-                src="assets/ku-logo-original.svg" 
+                src="assets/university-copenhagen-logo-light.svg" 
                 alt="University of Copenhagen" 
                 class="theme-logo light-logo"
                 onerror="this.style.display='none'" 
               />
               <img 
-                src="assets/ku-logo-white.svg" 
+                src="assets/university-copenhagen-logo-dark.svg" 
                 alt="University of Copenhagen" 
                 class="theme-logo dark-logo"
                 onerror="this.style.display='none'" 
               />
             </div>
-            <div class="education-details">
-              <h3>Bachelor's in Computer Science</h3>
+            <div class="education-content">
+              <h3><a href="https://www.ku.dk/english/" target="_blank" class="institution-link">BSc Computer Science</a></h3>
               <p class="institution">University of Copenhagen</p>
               <p class="duration">July 2021 - June 2024</p>
-              <p class="advisor">Bachelor's degree program</p>
-              <p class="description">Strong emphasis on logical thinking, abstract mathematics, and problem-solving.</p>
+              <p class="description">
+                Foundation in computer science fundamentals including algorithms, data structures, 
+                software development, and mathematical foundations of computing. Strong emphasis on 
+                logical thinking, abstract mathematics, and problem-solving.
+              </p>
               <p class="thesis">Thesis: Mesh Grid Networks</p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="experience">
-        <h2>Technical Experience</h2>
-
-        <div class="job">
-          <div class="job-header">
-            <div class="job-logo">
-              <img 
-                src="assets/pn-logo-black.png" 
-                alt="PeopleNet A/S" 
-                class="theme-logo light-logo"
-                onerror="this.style.display='none'" 
-              />
-              <img 
-                src="assets/pn-logo-white.png" 
-                alt="PeopleNet A/S" 
-                class="theme-logo dark-logo"
-                onerror="this.style.display='none'" 
-              />
-            </div>
-            <div class="job-title-section">
-              <h3>PeopleNet A/S</h3>
-              <span class="date">August 2022 – Present</span>
-            </div>
-          </div>
-          <p class="role">
-            Software Developer | Copenhagen, Denmark
-          </p>
-          <div class="job-description">
-            <ul>
-              <li>
-                Designed and deployed a custom AI-powered chatbot for SharePoint Online using Azure Cognitive Services and later optimized costs by integrating OpenAI Assistants API, saving 4,000-5,000 DKK per month.
-              </li>
-              <li>
-                Built a React & TypeScript-based web part that streamlined project site setup, reducing configuration time and improving operational efficiency.
-              </li>
-            </ul>
-          </div>
-          <div class="project-links">
-            <a href="https://peoplenet.dk/" target="_blank" class="project-link"
-              >PeopleNet Website</a
-            >
-          </div>
-        </div>
-
-        <div class="job">
-          <div class="job-header">
-            <div class="job-logo">
-              <img
-                src="./assets/disco2-patch.png"
-                alt="DISCO2 Mission Patch"
-                onerror="this.style.display='none'"
-              />
-            </div>
-            <div class="job-title-section">
-              <h3>DISCOSAT / DISCO Project</h3>
-              <span class="date">February 2023 – Present</span>
-            </div>
-          </div>
-          <p class="role">
-            Embedded Systems Developer (Volunteer) | Copenhagen, Denmark
-          </p>
-          <div class="job-description">
-            <ul>
-              <li>
-                Developed a C-based camera controller for CubeSat optical
-                sensors, implementing System V IPC mechanisms (shared memory and
-                message queues) to capture and process raw BayerRG image data
-                from visible and IR cameras, with CSP parameter integration for
-                remote Earth-based control and real-time telemetry feedback.
-              </li>
-              <li>
-                Built and maintained a Yocto-based Linux OS for CubeSats,
-                optimizing boot time and reducing system overhead for
-                space-ready deployment.
-              </li>
-            </ul>
-          </div>
-          <div class="project-links">
-            <a href="https://discosat.dk/" target="_blank" class="project-link"
-              >DISCOSAT Website</a
-            >
-          </div>
-        </div>
-      </section>
-
-      <section class="publications">
-        <h2>Publications</h2>
-
-        <div class="project featured santa-project">
-          <div class="project-header">
-            <h3>Building Towards a Distributed, Dynamic Solution to the Santa Claus Problem</h3>
-            <div class="project-tags">
-              <span class="tag">COPA2024 Conference Paper</span>
-              <span class="tag">Distributed Systems</span>
-              <span class="tag">Python</span>
-              <span class="tag">August 2024</span>
-            </div>
-          </div>
-          <div class="publication-venue">
-            <p><strong>Conference:</strong> Concurrent Processes Architectures and Embedded Systems</p>
-            <p><strong>Location:</strong> San Diego, California, USA</p>
-            <p><strong>Authors:</strong> Seoud, M., & Marchant, D.</p>
-          </div>
-
-          <div class="paper-preview">
-            <a
-              href="https://easychair.org/publications/paper/Gv4N"
-              target="_blank"
-              title="Read Paper"
-            >
-              <img
-                src="./assets/paper_preview.png"
-                alt="Paper Preview"
-                class="paper-thumb"
-                onerror="this.style.display='none'"
-              />
-            </a>
-          </div>
-
-          <div class="project-badges">
-            <a
-              href="https://easychair.org/publications/paper/Gv4N"
-              target="_blank"
-            >
-              <img
-                src="https://img.shields.io/badge/Paper-EasyChair-blue"
-                alt="Paper"
-              />
-            </a>
-            <a href="https://www.python.org/" target="_blank">
-              <img
-                src="https://img.shields.io/badge/Python-3.8%2B-blue"
-                alt="Python"
-              />
-            </a>
-            <a href="#" target="_blank">
-              <img
-                src="https://img.shields.io/badge/License-MIT-yellow.svg"
-                alt="License"
-              />
-            </a>
-          </div>
-
-          <p>
-            Research paper and implementation exploring distributed systems concepts through the classic Santa Claus Problem. Published at COPA2024 Virtual Conference, featuring both non-distributed and distributed solutions with comprehensive analysis and performance evaluation. This work represents the culmination of my Bachelor's thesis research at University of Copenhagen.
-          </p>
-
-          <div class="features-grid">
-            <div class="feature">
-              <h4>High-Performance Synchronization</h4>
-              <p>
-                Efficient process coordination using semaphores and network
-                protocols
-              </p>
-            </div>
-            <div class="feature">
-              <h4>Dual Implementation</h4>
-              <p>
-                Both non-distributed (multiprocess) and distributed
-                (network-based) solutions
-              </p>
-            </div>
-            <div class="feature">
-              <h4>Comprehensive Analysis</h4>
-              <p>
-                Built-in timing, performance metrics, and visual analysis tools
-              </p>
-            </div>
-          </div>
-
-          <div class="project-links">
-            <a
-              href="https://github.com/MahmoodSeoud/BachelorThesis"
-              target="_blank"
-              class="project-link primary github-link"
-              title="View Repository"
-            >
-              <svg
-                width="16"
-                height="16"
-                fill="currentColor"
-                viewBox="0 0 16 16"
-                style="margin-right: 6px"
-              >
-                <path
-                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-                />
-              </svg>
-              Code
-            </a>
-            <a
-              href="https://easychair.org/publications/paper/Gv4N"
-              target="_blank"
-              class="project-link"
-            >
-              Read Paper
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="projects">
-        <h2>Projects</h2>
-
-        <div class="project featured">
-          <div class="project-header">
-            <h3>SysMentor</h3>
-            <div class="project-tags">
-              <span class="tag">Education</span>
-              <span class="tag">Startup</span>
-            </div>
-          </div>
-          <p>
-            Created with
-            <a href="https://github.com/Nidocq" target="_blank">Nidocq</a>,
-            developing interactive learning simulations for Computer Systems
-            students.
-          </p>
-
-          <div class="sub-projects">
-            <h4>Interactive Learning Simulators</h4>
-            <p>
-              Computer Systems education tools with configurable parameters and
-              exam digitalization.
-            </p>
-
-            <div class="carousel-container">
-              <div class="carousel-wrapper">
-                <button class="carousel-nav prev" onclick="prevSlide()">
-                  ‹
-                </button>
-
-                <div class="carousel-content">
-                  <div class="carousel-slide active">
-                    <div class="slide-header">
-                      <h5>Cache-Hit-Miss Simulator</h5>
-                    </div>
-                    <div class="slide-media">
-                      <img
-                        src="assets/cache-demo.gif"
-                        alt="Cache Hit Miss Demo"
-                        class="carousel-gif"
-                      />
-                    </div>
-                    <div class="slide-description">
-                      <p>
-                        Interactive simulator for exploring cache memory
-                        concepts with configurable parameters and exam
-                        scenarios.
-                      </p>
-                      <div class="slide-links">
-                        <a
-                          href="https://github.com/MahmoodSeoud/cache-hit-miss"
-                          target="_blank"
-                          class="project-link github-link"
-                          title="View Code"
-                        >
-                          <svg
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            viewBox="0 0 16 16"
-                            style="margin-right: 6px"
-                          >
-                            <path
-                              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-                            />
-                          </svg>
-                          Code
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="carousel-slide">
-                    <div class="slide-header">
-                      <h5>VMAT - Virtual Memory Address Translation</h5>
-                    </div>
-                    <div class="slide-media">
-                      <img
-                        src="assets/vmat-demo.gif"
-                        alt="VMAT Demo"
-                        class="carousel-gif"
-                      />
-                    </div>
-                    <div class="slide-description">
-                      <p>
-                        Interactive VMAT simulator for exploring virtual memory address translation concepts with configurable parameters.
-                      </p>
-                      <div class="slide-links">
-                        <a
-                          href="https://github.com/MahmoodSeoud/VMAT"
-                          target="_blank"
-                          class="project-link github-link"
-                          title="View Code"
-                        >
-                          <svg
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            viewBox="0 0 16 16"
-                            style="margin-right: 6px"
-                          >
-                            <path
-                              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.20-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-                            />
-                          </svg>
-                          Code
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <button class="carousel-nav next" onclick="nextSlide()">
-                  ›
-                </button>
-              </div>
-
-              <div class="carousel-indicators">
-                <button
-                  class="indicator active"
-                  onclick="goToSlide(0)"
-                ></button>
-                <button class="indicator" onclick="goToSlide(1)"></button>
-              </div>
-            </div>
-
-            <div class="shared-report">
-              <a
-                href="assets/Virksomhedsprojekt_2023.pdf"
-                target="_blank"
-                class="project-link shared-report-link"
-                >Report</a
-              >
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <script>
-      // Dark Mode Toggle Functionality
-      const themeToggleBtn = document.getElementById('theme-toggle-btn');
-      const sunIcon = document.querySelector('.sun-icon');
-      const moonIcon = document.querySelector('.moon-icon');
-      
-      // Check for saved theme preference or default to dark mode
-      const savedTheme = localStorage.getItem('theme') || 'dark';
-      document.documentElement.setAttribute('data-theme', savedTheme);
-      
-      // Update icons based on current theme
-      function updateIcons(theme) {
-        if (theme === 'dark') {
-          sunIcon.style.display = 'none';
-          moonIcon.style.display = 'block';
-        } else {
-          sunIcon.style.display = 'block';
-          moonIcon.style.display = 'none';
-        }
-      }
-      
-      // Initialize icons
-      updateIcons(savedTheme);
-      
-      // Toggle theme function
-      function toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title">Some Things I've Built</h2>
         
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateIcons(newTheme);
-      }
-      
-      // Add click event listener
-      themeToggleBtn.addEventListener('click', toggleTheme);
+        <div class="projects-grid">
+          <div class="project-card featured">
+            <div class="project-image-grid">
+              <div class="project-image-item">
+                <img src="assets/lego-quality-control-original.png" alt="LEGO Brick with Scratches" />
+                <span class="image-caption">Original scratched LEGO brick</span>
+              </div>
+              <div class="project-image-item">
+                <img src="assets/lego-quality-control-detection-results.png" alt="LEGO Brick Scratch Detection Results" />
+                <span class="image-caption">Automated scratch detection results</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-header">
+                <h3>LEGO Quality Control System</h3>
+                <div class="project-links">
+                  <a href="https://github.com/MahmoodSeoud/AnomalyDINO" target="_blank" class="project-link">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                    GitHub
+                  </a>
+                  <a href="https://robotelite.sdu.dk/" target="_blank" class="project-link">Program</a>
+                </div>
+              </div>
+              <p>
+                Computer vision system for automated scratch detection developed during SDU's Elite Summer School. 
+                Worked in a team of 4 students to build an industrial-grade quality control solution using advanced 
+                anomaly detection algorithms. The system successfully identifies and highlights surface defects with high precision.
+              </p>
+              <ul class="tech-list">
+                <li>AnomalyDINO</li>
+                <li>Computer Vision</li>
+                <li>Python</li>
+                <li>Machine Learning</li>
+              </ul>
+            </div>
+          </div>
 
-      // Carousel functionality
-      let currentSlide = 0;
-      const slides = document.querySelectorAll(".carousel-slide");
-      const indicators = document.querySelectorAll(".indicator");
+          <div class="project-card">
+            <div class="project-image">
+              <img src="assets/cubesat-spacecraft-hardware.jpg" alt="DISCOSAT Camera System" />
+            </div>
+            <div class="project-content">
+              <div class="project-header">
+                <h3>CubeSat Camera Controller</h3>
+                <div class="project-links">
+                  <a href="https://discosat.dk/" target="_blank" class="project-link">Mission</a>
+                </div>
+              </div>
+              <p>
+                Embedded C-based camera controller system for CubeSat optical sensors. Handles raw BayerRG image data 
+                processing with real-time telemetry capabilities for Denmark's student satellite constellation.
+              </p>
+              <ul class="tech-list">
+                <li>Embedded C</li>
+                <li>Space Tech</li>
+                <li>Real-time Processing</li>
+                <li>Telemetry</li>
+              </ul>
+            </div>
+          </div>
 
-      function showSlide(n) {
-        slides[currentSlide].classList.remove("active");
-        indicators[currentSlide].classList.remove("active");
+          <div class="project-card">
+            <div class="project-image">
+              <img src="assets/sysmentor-vmat-simulator-demo.gif" alt="SysMentor VMAT Demo" />
+            </div>
+            <div class="project-content">
+              <div class="project-header">
+                <h3>SysMentor Educational Platform</h3>
+                <div class="project-links">
+                  <a href="https://github.com/MahmoodSeoud/vmat" target="_blank" class="project-link">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                    GitHub
+                  </a>
+                </div>
+              </div>
+              <p>
+                Interactive learning platform for computer systems education featuring simulators and digital exam platforms. Enhances CS education through hands-on simulation experiences.
+              </p>
+              <ul class="tech-list">
+                <li>React</li>
+                <li>WebGL</li>
+                <li>Educational Tech</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        currentSlide = (n + slides.length) % slides.length;
+    <!-- Publications Section -->
+    <section id="publications" class="section">
+      <div class="container">
+        <h2 class="section-title">Research & Publications</h2>
+        
+        <div class="publication-item">
+          <div class="publication-image">
+            <img src="assets/santa-claus-problem-paper-preview.png" alt="Research Paper Preview" />
+          </div>
+          <div class="publication-content">
+            <h3>Building Towards a Distributed, Dynamic Solution to the Santa Claus Problem</h3>
+            <p class="publication-venue">COPA2024 Conference • San Diego, California • August 2024</p>
+            <p class="publication-authors">Mahmood Seoud & David Marchant</p>
+            <p class="publication-description">
+              Research exploring distributed systems concepts through the classic Santa Claus Problem. 
+              Features both centralized and distributed implementations with comprehensive performance analysis 
+              and theoretical foundations for dynamic distributed computing solutions.
+            </p>
+            <div class="publication-links">
+              <a href="https://easychair.org/publications/paper/Gv4N" target="_blank" class="publication-link">View Paper</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        slides[currentSlide].classList.add("active");
-        indicators[currentSlide].classList.add("active");
-      }
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+      <div class="container">
+        <h2 class="section-title">Where I've Worked</h2>
+        
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">2023 - Present</div>
+            <div class="timeline-content">
+              <h3>Satellite Software Developer <span class="company">@ DISCOSAT</span></h3>
+              <p>
+                Developing embedded C systems for CubeSat camera controllers, handling raw BayerRG image processing 
+                and real-time telemetry for Denmark's student satellite missions. Working with space-grade hardware 
+                constraints and mission-critical software requirements.
+              </p>
+              <ul class="tech-list">
+                <li>Embedded C</li>
+                <li>Real-time Systems</li>
+                <li>Space Technology</li>
+                <li>Image Processing</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-year">2023 - Present</div>
+            <div class="timeline-content">
+              <h3>AI Solutions Developer <span class="company">@ PeopleNet</span></h3>
+              <p>
+                Built and deployed SharePoint-integrated AI chatbot reducing operational costs by 5,000 DKK/month. 
+                Led migration from Azure to OpenAI API, improving system performance while reducing infrastructure costs.
+              </p>
+              <ul class="tech-list">
+                <li>React</li>
+                <li>OpenAI API</li>
+                <li>SharePoint</li>
+                <li>Azure Migration</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      function nextSlide() {
-        showSlide(currentSlide + 1);
-      }
 
-      function prevSlide() {
-        showSlide(currentSlide - 1);
-      }
-
-      function goToSlide(n) {
-        showSlide(n);
-      }
-
-      // Auto-advance carousel every 5 seconds
-      setInterval(nextSlide, 5000);
-
-      // VMAT Demo Functions
-      function updateDemo() {
-        const pageSize = parseInt(document.getElementById("pageSize").value);
-        const virtualAddressInput =
-          document.getElementById("virtualAddress").value;
-
-        let virtualAddress;
-        if (virtualAddressInput.startsWith("0x")) {
-          virtualAddress = parseInt(virtualAddressInput, 16);
-        } else {
-          virtualAddress = parseInt(virtualAddressInput) || 0x12345678;
-        }
-
-        // Calculate page number and offset
-        const offsetBits = Math.log2(pageSize);
-        const pageNumber = virtualAddress >> offsetBits;
-        const offset = virtualAddress & (pageSize - 1);
-
-        // Simulate physical frame mapping
-        const physicalFrame = (pageNumber * 0x13 + 0x89ab) & 0xffff;
-        const physicalAddress = (physicalFrame << offsetBits) | offset;
-
-        // Update display
-        document.getElementById("pageNumber").textContent =
-          "0x" + pageNumber.toString(16).toUpperCase().padStart(4, "0");
-        document.getElementById("offset").textContent =
-          "0x" + offset.toString(16).toUpperCase().padStart(4, "0");
-        document.getElementById("physicalFrame").textContent =
-          "Frame 0x" +
-          physicalFrame.toString(16).toUpperCase().padStart(4, "0");
-        document.getElementById("physicalAddress").textContent =
-          "0x" + physicalAddress.toString(16).toUpperCase().padStart(8, "0");
-
-        // Update virtual address input to show hex format
-        document.getElementById("virtualAddress").value =
-          "0x" + virtualAddress.toString(16).toUpperCase().padStart(8, "0");
-      }
-
-      function randomAddress() {
-        const randomAddr = Math.floor(Math.random() * 0xffffffff);
-        document.getElementById("virtualAddress").value =
-          "0x" + randomAddr.toString(16).toUpperCase().padStart(8, "0");
-        updateDemo();
-      }
-
-      // Initialize demo with default values
-      document.addEventListener("DOMContentLoaded", function () {
-        updateDemo();
-      });
-
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
