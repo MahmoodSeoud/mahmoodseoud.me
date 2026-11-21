@@ -1,0 +1,10 @@
+{
+  "name": "downlink",
+  "private": true,
+  "scripts": {
+    "test": "node --test test/"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.65.1"
+  }
+}
