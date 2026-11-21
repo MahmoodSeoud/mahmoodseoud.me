@@ -1,472 +1,439 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Mahmood Seoud - Computer Science Student & Researcher specializing in Space Technology and AI"
-    />
-    <meta name="author" content="Mahmood Seoud" />
-    <title>Mahmood Seoud</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <!-- Navigation -->
-    <nav class="nav">
-      <div class="nav-container">
-        <div class="nav-left">
-          <a href="#about" class="logo">MS</a>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mahmood Seoud · Satellite camera software and applied AI</title>
+<meta name="description" content="Mahmood Seoud is a computer scientist who writes embedded C for a CubeSat camera controller and builds applied AI tools.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%2306080C'/><rect x='4' y='4' width='11' height='11' fill='%23E5484D'/><rect x='17' y='4' width='11' height='11' fill='%2346A758'/><rect x='4' y='17' width='11' height='11' fill='%2346A758'/><rect x='17' y='17' width='11' height='11' fill='%233E63DD'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Geist:wght@100..900&display=swap">
+<link rel="preload" as="image" href="assets/earth-plate.jpg">
+<link rel="stylesheet" href="scrollcraft.css">
+<style>
+  :root {
+    --sc-canvas:     #06080C;
+    --sc-surface:    #0E1218;
+    --sc-ink:        #EEF1F6;
+    --sc-ink-soft:   #97A3B6;
+    --sc-accent:     #F5B55B;
+    --sc-accent-ink: #0A0C10;
+    --sc-font-display: "Archivo", system-ui, sans-serif;
+    --sc-font-text:    "Geist", system-ui, sans-serif;
+    --sc-font-mono:    "Geist", system-ui, sans-serif;
+    --bar: 3.5rem;
+    --r: 4px;
+  }
+  html { scroll-padding-top: var(--bar); }
+  .sc-display { font-stretch: 112%; font-weight: 600; }
+  h1, h2, h3, p, dl, dd, figure, table { margin: 0; }
+  .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+  /* ---- chrome: an index of objects -------------------------------------- */
+  .bar {
+    position: fixed; inset: 0 0 auto 0; z-index: 60;
+    display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--sc-5);
+    height: var(--bar); padding-inline: var(--sc-gutter);
+    background: color-mix(in oklab, var(--sc-canvas) 94%, transparent);
+    border-bottom: 1px solid var(--sc-hairline);
+    font-size: var(--sc-t-sm);
+  }
+  .bar__name { font-family: var(--sc-font-display); font-stretch: 112%; font-weight: 600; letter-spacing: var(--sc-track-snug); text-decoration: none; white-space: nowrap; }
+  .index { display: flex; gap: clamp(0.75rem, 1.6vw, 1.75rem); justify-content: center; list-style: none; margin: 0; padding: 0; }
+  .index a {
+    display: block; padding-block: 0.9rem; color: var(--sc-ink-soft); text-decoration: none; white-space: nowrap;
+    box-shadow: inset 0 -2px 0 transparent;
+    transition: color 160ms var(--sc-ease-out), box-shadow 160ms var(--sc-ease-out);
+  }
+  .index a[aria-current="true"] { color: var(--sc-ink); box-shadow: inset 0 -2px 0 var(--sc-accent); }
+  @media (hover: hover) and (pointer: fine) { .index a:hover { color: var(--sc-ink); } }
+  .mail { color: var(--sc-accent); white-space: nowrap; text-underline-offset: 0.3em; }
+  .mail:active { transform: translateY(1px); }
+
+  /* ---- the label: one schema for every object --------------------------- */
+  .plate {
+    background: color-mix(in oklab, var(--sc-surface) 96%, transparent);
+    border-radius: var(--r);
+    box-shadow: var(--sc-e2), var(--sc-edge);
+    padding: var(--sc-5);
+  }
+  .obj__title { font-family: var(--sc-font-display); font-stretch: 112%; font-weight: 600; font-size: var(--sc-t-lg); line-height: 1.15; letter-spacing: var(--sc-track-snug); text-wrap: balance; }
+  .label { margin-top: var(--sc-4); font-size: var(--sc-t-sm); line-height: 1.5; }
+  .label > div { display: grid; grid-template-columns: 4.75rem 1fr; gap: var(--sc-4); padding-block: 0.6rem; border-top: 1px solid var(--sc-hairline); }
+  .label dt { font-size: var(--sc-t-xs); letter-spacing: var(--sc-track-wide); text-transform: uppercase; color: var(--sc-ink-soft); padding-top: 0.12em; }
+  .label dd a + a { margin-left: var(--sc-4); }
+  .label a, .ledger a, .foot a { text-decoration-color: color-mix(in oklab, var(--sc-ink) 40%, transparent); transition: text-decoration-color 160ms var(--sc-ease-out); }
+  @media (hover: hover) and (pointer: fine) { .label a:hover, .ledger a:hover, .foot a:hover { text-decoration-color: var(--sc-accent); } }
+  .caption { font-size: var(--sc-t-xs); color: var(--sc-ink-soft); line-height: 1.5; }
+
+  /* ---- 1. frame: the layered scene -------------------------------------- */
+  .hero { position: relative; height: 100vh; height: 100svh; overflow: clip; background: #020305; }
+  .hero__frame {
+    --fw: max(100vw, 133.34vh); --fx: 0.5;
+    position: absolute; pointer-events: none;
+    width: var(--fw); height: calc(var(--fw) * 0.75);
+    left: calc(50vw - var(--fx) * var(--fw));
+    top: calc(50vh - var(--fw) * 0.375);
+  }
+  @supports (height: 100svh) {
+    .hero__frame { --fw: max(100vw, 133.34svh); top: calc(50svh - var(--fw) * 0.375); }
+  }
+  .plane { position: absolute; max-width: none; will-change: transform; }
+  .plane--earth { inset: 0; width: 100%; height: 100%; transform: scale(1.06); transform-origin: 50% 62%; }
+  .plane--sat { left: var(--sat-l); top: var(--sat-t); width: var(--sat-w); height: auto; transform: scale(1.02); transform-origin: 55% 55%; }
+  .plane--veil {
+    inset: 0; mix-blend-mode: screen; opacity: 0.55;
+    background: radial-gradient(34% 26% at 45% 40%, rgb(255 233 196 / 0.5), rgb(255 214 160 / 0.12) 45%, transparent 72%);
+  }
+  .hero__floor { position: absolute; inset: auto 0 0 0; height: 26%; z-index: 4; pointer-events: none;
+    background: linear-gradient(to top, var(--sc-canvas), color-mix(in oklab, var(--sc-canvas) 60%, transparent) 40%, transparent); }
+  .hero__id { position: absolute; z-index: 1; left: var(--sc-gutter); right: var(--sc-gutter); top: calc(var(--bar) + clamp(2rem, 9vh, 6rem)); }
+  .hero__id h1 { font-size: clamp(3.3rem, 8.6vw, 9.25rem); line-height: 0.92; letter-spacing: -0.04em; }
+  .hero__id p { margin-top: var(--sc-5); font-size: var(--sc-t-lg); line-height: 1.4; max-width: 24ch; color: var(--sc-ink); }
+  .hero__front { z-index: 2; }
+  .hero__label { position: absolute; z-index: 5; right: var(--sc-gutter); bottom: clamp(1.5rem, 7vh, 4rem); width: min(25rem, calc(100vw - 2 * var(--sc-gutter))); }
+
+  /* ---- 2. develop: the peak --------------------------------------------- */
+  .dev { background: #020305; }
+  .dev__img, .dev canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 37% 50%; }
+  .dev canvas { display: none; touch-action: pan-y; }
+  .has-dev .dev canvas { display: block; }
+  .has-dev .dev__img { visibility: hidden; }
+  .dev__copy { position: absolute; z-index: 20; width: min(27rem, calc(100vw - 2 * var(--sc-gutter))); }
+  .dev__copy h2 { font-size: var(--sc-t-xl); line-height: 1.08; letter-spacing: var(--sc-track-snug); }
+  .dev__copy p { margin-top: var(--sc-3); color: var(--sc-ink-soft); font-size: var(--sc-t-sm); line-height: 1.55; }
+  .dev__copy p strong { color: var(--sc-ink); font-weight: 500; }
+  .at-bl { left: var(--sc-gutter); bottom: clamp(4.5rem, 12vh, 7rem); }
+  .at-tr { right: var(--sc-gutter); top: calc(var(--bar) + clamp(1.5rem, 8vh, 4.5rem)); }
+  .at-br { right: var(--sc-gutter); bottom: clamp(4.5rem, 12vh, 7rem); }
+  .dev__note {
+    position: absolute; z-index: 21; left: 0; right: 0; bottom: 0;
+    display: flex; justify-content: space-between; gap: var(--sc-5);
+    padding: 0.55rem var(--sc-gutter);
+    background: color-mix(in oklab, var(--sc-canvas) 92%, transparent);
+    border-top: 1px solid var(--sc-hairline);
+  }
+  .dev__readout { font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--sc-ink); }
+  .dev__readout:empty { display: none; }
+  .cfa { display: inline-grid; grid-template-columns: repeat(2, 0.62em); gap: 2px; vertical-align: -0.12em; margin-right: 0.5em; }
+  .cfa i { display: block; aspect-ratio: 1; }
+  .cfa i:nth-child(1) { background: #E5484D; } .cfa i:nth-child(2), .cfa i:nth-child(3) { background: #46A758; } .cfa i:nth-child(4) { background: #3E63DD; }
+
+  /* ---- 3. scratches: a wipe is a change of state ------------------------ */
+  .scratch { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 8fr); gap: clamp(2rem, 6vw, 6rem); align-items: center; }
+  .scratch h2 { font-size: var(--sc-t-2xl); }
+  .scratch__lede { margin-top: var(--sc-4); color: var(--sc-ink-soft); max-width: 36ch; }
+  .scratch .label { margin-top: var(--sc-6); }
+  .mount { background: #F4F3F0; padding: clamp(0.75rem, 2vw, 1.75rem); border-radius: var(--r); box-shadow: var(--sc-e3); }
+  .mount__pair { position: relative; }
+  .mount img { width: 100%; height: auto; }
+  .mount__after { position: absolute; inset: 0; }
+  .scratch figcaption { margin-top: var(--sc-3); }
+
+  /* ---- 4. collection: lateral travel ------------------------------------ */
+  .rail { height: 100%; align-items: center; gap: clamp(2.5rem, 7vw, 8rem); padding: var(--bar) var(--sc-gutter) 0; width: max-content; }
+  .rail > * { flex: none; }
+  .rail__lead { width: min(30rem, 80vw); }
+  .rail__lead h2 { font-size: var(--sc-t-3xl); }
+  .rail__lead p { margin-top: var(--sc-5); color: var(--sc-ink-soft); max-width: 30ch; }
+  .obj { width: min(34rem, 82vw); }
+  .obj--wide { width: min(64rem, 82vw); }
+  .obj__media { border-radius: var(--r); overflow: hidden; box-shadow: var(--sc-e3); background: var(--sc-surface); }
+  .obj__media :is(img, video) { width: 100%; height: auto; }
+  .obj__pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sc-4); }
+  .obj .obj__title { margin-top: var(--sc-5); }
+  .obj--paper .obj__media { background: #fff; }
+  .figure-num { font-family: var(--sc-font-display); font-stretch: 112%; font-weight: 600; font-size: clamp(3.6rem, 9vw, 8rem); line-height: 1; letter-spacing: -0.045em; white-space: nowrap; }
+  .figure-num small { display: block; margin-top: var(--sc-3); font-family: var(--sc-font-text); font-stretch: 100%; font-weight: 400; font-size: var(--sc-t-base); letter-spacing: 0; line-height: 1.4; color: var(--sc-ink-soft); white-space: normal; }
+  .rail__end { width: min(22rem, 76vw); padding-right: var(--sc-gutter); }
+  .rail__end p { font-size: var(--sc-t-lg); line-height: 1.35; }
+  .rail__end a { display: inline-block; margin-top: var(--sc-4); }
+
+  /* ---- 5. record: administrative, compressed ---------------------------- */
+  .record { padding-block: clamp(3rem, 7vw, 7rem) var(--sc-section); }
+  .record h2 { font-size: var(--sc-t-2xl); }
+  .ledger { width: 100%; margin-top: var(--sc-7); border-collapse: collapse; font-size: var(--sc-t-sm); line-height: 1.5; }
+  .ledger th { text-align: left; font-weight: 400; font-size: var(--sc-t-xs); letter-spacing: var(--sc-track-wide); text-transform: uppercase; color: var(--sc-ink-soft); padding-bottom: var(--sc-3); }
+  .ledger td { vertical-align: top; padding: var(--sc-4) var(--sc-5) var(--sc-4) 0; border-top: 1px solid var(--sc-hairline); }
+  .ledger td:first-child { white-space: nowrap; color: var(--sc-ink-soft); width: 9rem; }
+  .ledger td:nth-child(2) { font-weight: 500; width: 28%; }
+  .ledger td:nth-child(3) { width: 24%; }
+  .ledger td:last-child { color: var(--sc-ink-soft); padding-right: 0; }
+
+  /* ---- 6. maker: the close ---------------------------------------------- */
+  .close { display: grid; grid-template-rows: 1fr auto; padding: calc(var(--bar) + var(--sc-5)) var(--sc-gutter) 0; background: var(--sc-canvas); }
+  .close__body { display: grid; grid-template-columns: auto minmax(0, 28rem); gap: clamp(2rem, 6vw, 6rem); align-items: center; justify-content: center; min-height: 0; }
+  .close__portrait { position: relative; height: min(64vh, 34rem); aspect-ratio: 4 / 5; border-radius: var(--r); overflow: hidden; box-shadow: var(--sc-e3); background: var(--sc-surface); }
+  .close__portrait :is(img, canvas) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .close__portrait canvas { display: none; }
+  .has-dev .close__portrait canvas { display: block; }
+  .close h2 { font-size: var(--sc-t-2xl); }
+  .close__lede { margin-top: var(--sc-4); color: var(--sc-ink-soft); max-width: 34ch; }
+  .close .label { margin-top: var(--sc-6); }
+  .close .mail { font-size: var(--sc-t-base); }
+  .foot { display: flex; justify-content: space-between; gap: var(--sc-5); padding-block: var(--sc-4); border-top: 1px solid var(--sc-hairline); margin-top: var(--sc-5); }
+
+  /* ---- phone: recomposed, not shrunk ------------------------------------ */
+  @media (max-width: 900px) {
+    :root { --bar: 5.5rem; }
+    .bar { grid-template-columns: 1fr auto; grid-template-rows: 2.9rem 2.6rem; row-gap: 0; }
+    .bar__name { grid-row: 1; }
+    .bar > .mail { grid-row: 1; grid-column: 2; padding-block: 0.6rem; }
+    .bar nav { grid-row: 2; grid-column: 1 / -1; margin-inline: calc(-1 * var(--sc-gutter)); overflow-x: auto; scrollbar-width: none; border-top: 1px solid var(--sc-hairline); }
+    .bar nav::-webkit-scrollbar { display: none; }
+    .index { justify-content: flex-start; gap: 1.4rem; padding-inline: var(--sc-gutter); width: max-content; }
+    .index a { padding-block: 0.62rem; }
+    .scratch { grid-template-columns: 1fr; }
+    .scratch figure { order: -1; }
+    .obj__pair { grid-template-columns: 1fr; }
+    .ledger thead { display: none; }
+    .ledger tr { display: grid; grid-template-columns: 1fr; padding-block: var(--sc-4); border-top: 1px solid var(--sc-hairline); }
+    .ledger td { border: 0; padding: 0; width: auto !important; }
+    .close__body { grid-template-columns: 1fr; justify-items: start; align-content: center; gap: var(--sc-5); }
+    .close__portrait { height: min(30vh, 16rem); }
+    .close__lede { display: none; }
+    .close .label { margin-top: var(--sc-4); }
+    .foot { flex-direction: column; gap: var(--sc-1); }
+  }
+  @media (max-width: 900px) and (orientation: portrait) {
+    .hero__frame { --fx: 0.37; }
+    .hero__id { top: calc(var(--bar) + 1.5rem); z-index: 3; }
+    .hero__id h1 { font-size: clamp(3rem, 15.5vw, 4.6rem); }
+    .hero__id p { font-size: var(--sc-t-base); margin-top: var(--sc-4); }
+    .hero__label { left: var(--sc-gutter); right: var(--sc-gutter); width: auto; bottom: 1.25rem; padding: var(--sc-4); }
+    .hero__label .label > div:nth-child(n+3) { display: none; }
+    .dev__copy { left: var(--sc-gutter); right: var(--sc-gutter); width: auto; top: auto; bottom: 4.75rem; padding: var(--sc-4); }
+    .dev__note { flex-direction: column; gap: 0; }
+  }
+  @media (max-width: 900px) and (orientation: portrait) and (max-height: 720px) {
+    /* Short phones: drop the scene so the name and descriptor sit on open sky. */
+    .hero__frame { margin-top: 15vh; }
+    .hero__id { top: calc(var(--bar) + 1rem); }
+    .hero__id h1 { font-size: 2.9rem; }
+    .hero__label .caption, .hero__label .label > div:nth-child(n+2) { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mount__after { position: static; margin-top: var(--sc-3); }
+    /* The rail becomes a native sideways scroll region, so it must not also hold a pin. */
+    #collection { height: auto !important; }
+    #collection [data-sc-stage] { position: relative; height: auto; padding-block: var(--sc-section); }
+    .rail { padding-top: 0; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <a class="bar__name" href="#frame">Mahmood Seoud</a>
+  <nav aria-label="Index of objects">
+    <ul class="index">
+      <li><a href="#frame" data-jump>Frame</a></li>
+      <li><a href="#develop" data-jump>Develop</a></li>
+      <li><a href="#scratches" data-jump>Scratches</a></li>
+      <li><a href="#sysmentor" data-jump>Simulators</a></li>
+      <li><a href="#paper" data-jump>Paper</a></li>
+      <li><a href="#chatbot" data-jump>Chatbot</a></li>
+      <li><a href="#record" data-jump>Record</a></li>
+      <li><a href="#maker" data-jump>Maker</a></li>
+    </ul>
+  </nav>
+  <a class="mail" href="mailto:Mahmoodseoud@gmail.com">Email Mahmood</a>
+</header>
+
+<main>
+
+  <!-- 1 · STILLNESS: layered scene, natural flow. Planes are driven by the page script. -->
+  <section class="hero" id="frame" data-sc-act="flow" style="--sat-l:13.2083%; --sat-t:36.7778%; --sat-w:40.125%;">
+    <div class="hero__frame" aria-hidden="true">
+      <img class="plane plane--earth" src="assets/earth-plate.jpg" width="2400" height="1800" alt="">
+    </div>
+    <div class="hero__id">
+      <h1 class="sc-display">Mahmood Seoud</h1>
+      <p>Computer scientist. Satellite camera software and applied AI.</p>
+    </div>
+    <div class="hero__frame hero__front" aria-hidden="true">
+      <img class="plane plane--sat" src="assets/satellite.webp" width="963" height="645" alt="">
+      <div class="plane plane--veil"></div>
+    </div>
+    <div class="hero__floor" aria-hidden="true"></div>
+    <div class="hero__label plate">
+      <h2 class="obj__title">CubeSat camera controller</h2>
+      <dl class="label">
+        <div><dt>What</dt><dd>Software that runs the camera on a student satellite</dd></div>
+        <div><dt>For</dt><dd>DISCOSAT, 2025 to present</dd></div>
+        <div><dt>Medium</dt><dd>Embedded C, raw BayerRG frames, real-time telemetry</dd></div>
+        <div><dt>Link</dt><dd><a href="https://discosat.dk/">discosat.dk</a></dd></div>
+      </dl>
+      <p class="caption" style="margin-top: var(--sc-3)">Picture: DISCO-2 mission render, over the North Sea and Denmark.</p>
+    </div>
+  </section>
+
+  <!-- 2 · AWE, the peak: the frame as the sensor records it, developed by scroll. -->
+  <section id="develop" data-sc-act="pin" data-sc-span="4.4">
+    <div data-sc-stage class="dev">
+      <img class="dev__img" src="assets/frame-poster.jpg" width="1600" height="1200" loading="lazy"
+           alt="A small satellite with dark solar panels above the North Sea, with Denmark and southern Norway below.">
+      <canvas id="dev-canvas" aria-hidden="true"></canvas>
+
+      <div class="dev__copy plate at-bl" data-sc-cue="0 0.2 0">
+        <h2 class="sc-display">This is what a camera sensor records.</h2>
+        <p><span class="cfa" aria-hidden="true"><i></i><i></i><i></i><i></i></span>One colour per photosite. Red, green, green, blue, repeated. Nobody has a picture yet.</p>
+      </div>
+      <div class="dev__copy plate at-tr" data-sc-cue="0.14 0.47 0.06 0.06">
+        <p><strong>Pull back and it is the same frame from the top of this page,</strong> with two thirds of its colour never measured.</p>
+      </div>
+      <div class="dev__copy plate at-bl" data-sc-cue="0.42 0.84">
+        <p><strong>The rest is arithmetic.</strong> Each missing value is worked out from the neighbours that did measure it, one row after another.</p>
+      </div>
+      <div class="dev__copy plate at-br" data-sc-cue="0.82 1 0.05 0.03">
+        <h2 class="sc-display">Developed.</h2>
+        <p>Getting raw BayerRG frames off a sensor and down to the ground, with telemetry, is what I write for DISCOSAT. In embedded C, for hardware nobody can reach to fix.</p>
+      </div>
+
+      <p class="dev__note caption">
+        <span>Simulation. The mission render is resampled to a 1280 by 960 BayerRG mosaic in your browser and rebuilt by bilinear interpolation. Not flight data, not flight code.</span>
+        <output class="dev__readout" id="dev-readout" aria-hidden="true"></output>
+      </p>
+    </div>
+  </section>
+
+  <!-- 3 · CLARITY: flow + reveal. -->
+  <section class="sc-section" id="scratches" data-sc-act="flow">
+    <div class="sc-wrap scratch">
+      <div data-sc-in data-sc-stagger="60">
+        <h2 class="sc-display">Scratches</h2>
+        <p class="scratch__lede">A camera looks at a brick. The detector marks what a person on a production line would have to squint for.</p>
+        <dl class="label">
+          <div><dt>What</dt><dd>Automatic scratch detection for LEGO quality control</dd></div>
+          <div><dt>For</dt><dd>SDU Elite Robotics Summer School, August 2025. Team of four</dd></div>
+          <div><dt>Medium</dt><dd>AnomalyDINO, Python, computer vision</dd></div>
+          <div><dt>Link</dt><dd><a href="https://github.com/MahmoodSeoud/AnomalyDINO">GitHub</a><a href="https://robotelite.sdu.dk/">Programme</a></dd></div>
+        </dl>
+      </div>
+      <figure>
+        <div class="mount">
+          <div class="mount__pair">
+            <img src="assets/lego-before.jpg" width="1448" height="604" loading="lazy" alt="A white LEGO wedge brick with faint scratches near its left edge and across its lower face.">
+            <img class="mount__after" src="assets/lego-after.jpg" width="1448" height="604" loading="lazy" data-sc-reveal="right" data-sc-reveal-at="0.3 0.56"
+                 alt="The same brick with the two scratched regions highlighted in yellow by the detector.">
+          </div>
         </div>
-        <div class="nav-right">
-          <a href="#about">About</a>
-          <a href="#education">Education</a>
-          <a href="#projects">Projects</a>
-          <a href="#publications">Publications</a>
-          <a href="#experience">Experience</a>
-          <a href="assets/resume.pdf" target="_blank" class="resume-link"
-            >Resume</a
-          >
-          <button
-            id="theme-toggle"
-            class="theme-toggle"
-            aria-label="Toggle dark mode"
-          >
-            <span class="theme-icon">◐</span>
-          </button>
+        <figcaption class="caption">The camera image, then the detector's anomaly map laid over it.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 4 · APPETITE: pan. Lead and end plates are rail items so the travel has room. -->
+  <section id="collection" data-sc-act="pan" data-sc-span="3.4">
+    <div data-sc-stage>
+      <div class="rail" data-sc-pan="0.04">
+        <div class="rail__lead">
+          <h2 class="sc-display">Also in the collection</h2>
+          <p>Teaching simulators, a conference paper and a chatbot that pays for itself.</p>
+        </div>
+
+        <article class="obj obj--wide" id="sysmentor">
+          <div class="obj__pair">
+            <div class="obj__media" data-sc-tilt="5">
+              <video muted loop playsinline preload="none" poster="assets/sysmentor-cache-visualization.jpg" data-src="assets/sysmentor-cache-visualization.mp4"
+                     width="800" height="450" aria-label="Screen recording of a cache simulator stepping through memory accesses."></video>
+            </div>
+            <div class="obj__media" data-sc-tilt="5">
+              <video muted loop playsinline preload="none" poster="assets/sysmentor-vmat-simulator.jpg" data-src="assets/sysmentor-vmat-simulator.mp4"
+                     width="800" height="450" aria-label="Screen recording of a virtual memory address translation simulator."></video>
+            </div>
+          </div>
+          <h3 class="obj__title">SysMentor</h3>
+          <dl class="label">
+            <div><dt>What</dt><dd>Simulators and digital exams for learning how computers work</dd></div>
+            <div><dt>For</dt><dd>Computer systems courses</dd></div>
+            <div><dt>Medium</dt><dd>React, WebGL</dd></div>
+            <div><dt>Link</dt><dd><a href="https://github.com/MahmoodSeoud/vmat">GitHub</a></dd></div>
+          </dl>
+        </article>
+
+        <article class="obj obj--paper" id="paper">
+          <div class="obj__media" data-sc-tilt="5">
+            <img src="assets/paper.jpg" width="812" height="422" loading="lazy" alt="First page of the paper in Kalpa Publications in Computing, volume 20, 2024.">
+          </div>
+          <h3 class="obj__title">Building Towards a Distributed, Dynamic Solution to the Santa Claus Problem</h3>
+          <dl class="label">
+            <div><dt>What</dt><dd>Centralised and distributed implementations, with performance analysis</dd></div>
+            <div><dt>For</dt><dd>COPA 2024, San Diego. With David Marchant</dd></div>
+            <div><dt>Medium</dt><dd>Conference paper, distributed systems</dd></div>
+            <div><dt>Link</dt><dd><a href="https://easychair.org/publications/paper/Gv4N">Read the paper</a></dd></div>
+          </dl>
+        </article>
+
+        <article class="obj" id="chatbot">
+          <p class="figure-num"><span data-sc-count="0 5,000" data-sc-count-at="0.56 0.74">5,000</span> DKK
+            <small>saved every month in operating costs.</small></p>
+          <h3 class="obj__title">SharePoint AI chatbot</h3>
+          <dl class="label">
+            <div><dt>What</dt><dd>An assistant that answers from a company's own SharePoint</dd></div>
+            <div><dt>For</dt><dd>PeopleNet, 2022 to present</dd></div>
+            <div><dt>Medium</dt><dd>React, OpenAI API. Migrated off Azure</dd></div>
+            <div><dt>Link</dt><dd>Internal deployment</dd></div>
+          </dl>
+        </article>
+
+        <div class="rail__end">
+          <p>The whole record fits on one page.</p>
+          <a href="assets/resume.pdf">Résumé (PDF)</a>
         </div>
       </div>
-    </nav>
+    </div>
+  </section>
 
-    <!-- Hero Section -->
-    <section id="about" class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <h1>Hi, I'm <span class="highlight">Mahmood Seoud</span></h1>
-          <p class="hero-subtitle">Computer Science Student</p>
-          <p class="hero-description">
-            Computer science student interested in space technology and AI.
-            Currently pursuing my MSc at ITU Copenhagen while working on
-            satellite camera controllers for Denmark's CubeSat missions and AI
-            automation solutions.
-          </p>
-          <div class="hero-links">
-            <a href="mailto:Mahmoodseoud@gmail.com" class="hero-link">
-              <svg
-                width="20"
-                height="20"
-                fill="currentColor"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"
-                />
-              </svg>
-              Email
-            </a>
-            <a
-              href="https://www.linkedin.com/in/mahmoodmohammedseoud/"
-              target="_blank"
-              class="hero-link"
-            >
-              <svg
-                width="20"
-                height="20"
-                fill="currentColor"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"
-                />
-              </svg>
-              LinkedIn
-            </a>
-            <a
-              href="https://github.com/MahmoodSeoud"
-              target="_blank"
-              class="hero-link"
-            >
-              <svg
-                width="20"
-                height="20"
-                fill="currentColor"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-                />
-              </svg>
-              GitHub
-            </a>
-          </div>
-        </div>
-        <div class="hero-image">
-          <img
-            src="assets/IMG_2635.jpg"
-            alt="Mahmood Seoud"
-            class="profile-img"
-          />
+  <!-- 5 · TRUST: flow. Dates and institutions, no devices beyond the entry fade. -->
+  <section class="record" id="record" data-sc-act="flow">
+    <div class="sc-wrap" data-sc-in>
+      <h2 class="sc-display">Record</h2>
+      <table class="ledger">
+        <thead><tr><th scope="col">When</th><th scope="col">What</th><th scope="col">Where</th><th scope="col">Note</th></tr></thead>
+        <tbody>
+          <tr><td>2025 to present</td><td>Satellite Software Developer</td><td><a href="https://discosat.dk/">DISCOSAT</a></td><td>Camera controllers for Denmark's student satellite missions.</td></tr>
+          <tr><td>August 2025</td><td>Elite Robotics Summer School</td><td><a href="https://robotelite.sdu.dk/">University of Southern Denmark</a></td><td>Three weeks. 50 students from five continents.</td></tr>
+          <tr><td>2024 to 2026</td><td>MSc Computer Science</td><td><a href="https://www.itu.dk/">IT University of Copenhagen</a></td><td>Distributed systems, artificial intelligence, software engineering.</td></tr>
+          <tr><td>2022 to present</td><td>AI Solutions Developer</td><td>PeopleNet</td><td>Built the chatbot. Led the move from Azure to the OpenAI API.</td></tr>
+          <tr><td>2021 to 2024</td><td>BSc Computer Science</td><td><a href="https://www.ku.dk/english/">University of Copenhagen</a></td><td>Thesis: Mesh Grid Networks.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 6 · WARMTH: the close. Nothing here is cued, so the last screen always holds. -->
+  <section id="maker" data-sc-act="pin" data-sc-span="1.35">
+    <div data-sc-stage class="close">
+      <div class="close__body">
+        <figure class="close__portrait">
+          <img src="assets/portrait.jpg" width="960" height="1200" loading="lazy" alt="Mahmood Seoud, smiling, with the sea behind him.">
+          <canvas id="maker-canvas" aria-hidden="true"></canvas>
+        </figure>
+        <div>
+          <h2 class="sc-display">The maker</h2>
+          <p class="close__lede">Same sensor pattern, same arithmetic. Write to me about satellites, embedded systems or applied AI.</p>
+          <dl class="label">
+            <div><dt>What</dt><dd>Mahmood Seoud, computer scientist</dd></div>
+            <div><dt>For</dt><dd>Space technology and applied AI</dd></div>
+            <div><dt>Medium</dt><dd>Embedded C, Python, React</dd></div>
+            <div><dt>Link</dt><dd><a class="mail" href="mailto:Mahmoodseoud@gmail.com">Email Mahmood</a></dd></div>
+          </dl>
         </div>
       </div>
-    </section>
+      <footer class="foot caption">
+        <span>Every picture here is Mahmood's own. The Bayer simulation runs in your browser.</span>
+        <span><a href="https://www.linkedin.com/in/mahmoodmohammedseoud/">LinkedIn</a> · <a href="https://github.com/MahmoodSeoud">GitHub</a> · <a href="assets/resume.pdf">Résumé</a></span>
+      </footer>
+    </div>
+  </section>
 
-    <!-- Education Section -->
-    <section id="education" class="section">
-      <div class="container">
-        <h2 class="section-title">Education</h2>
+</main>
 
-        <div class="education-grid">
-          <div class="education-item">
-            <div class="education-logo">
-              <img
-                src="assets/sdulogo-black.png"
-                alt="University of Southern Denmark"
-                onerror="this.style.display='none'"
-              />
-            </div>
-            <div class="education-content">
-              <h3>
-                <a
-                  href="https://robotelite.sdu.dk/"
-                  target="_blank"
-                  class="institution-link"
-                  >Elite Robotics Summer School</a
-                >
-              </h3>
-              <p class="institution">University of Southern Denmark</p>
-              <p class="duration">3 weeks intensive program • August 2025</p>
-              <p class="description">
-                International elite robotics program bringing together 50 top
-                students from world-leading universities across 5 continents.
-                Focused on collaborative industrial robots, advanced algorithms
-                for mobile robots and robot manipulators, with hands-on
-                experience in robotics system design for industrial
-                manufacturing, service robotics, and medical applications.
-                Combined technical excellence with entrepreneurship in Denmark's
-                robotics hub.
-              </p>
-            </div>
-          </div>
-
-          <div class="education-item">
-            <div class="education-logo">
-              <img
-                src="assets/itu-copenhagen-logo-compact.jpg"
-                alt="IT University of Copenhagen"
-                onerror="this.style.display='none'"
-              />
-            </div>
-            <div class="education-content">
-              <h3>
-                <a
-                  href="https://www.itu.dk/"
-                  target="_blank"
-                  class="institution-link"
-                  >MSc Computer Science</a
-                >
-              </h3>
-              <p class="institution">IT University of Copenhagen</p>
-              <p class="duration">July 2024 - June 2026</p>
-              <p class="description">
-                Advanced studies in distributed systems, artificial
-                intelligence, and software engineering with focus on space
-                technology applications and real-world AI solutions. Gaining
-                hands-on experience in digital fabrication and rapid prototyping
-                through specialized coursework.
-              </p>
-            </div>
-          </div>
-
-          <div class="education-item">
-            <div class="education-logo">
-              <img
-                src="assets/university-copenhagen-logo-light.svg"
-                alt="University of Copenhagen"
-                class="theme-logo light-logo"
-                onerror="this.style.display='none'"
-              />
-              <img
-                src="assets/university-copenhagen-logo-dark.svg"
-                alt="University of Copenhagen"
-                class="theme-logo dark-logo"
-                onerror="this.style.display='none'"
-              />
-            </div>
-            <div class="education-content">
-              <h3>
-                <a
-                  href="https://www.ku.dk/english/"
-                  target="_blank"
-                  class="institution-link"
-                  >BSc Computer Science</a
-                >
-              </h3>
-              <p class="institution">University of Copenhagen</p>
-              <p class="duration">July 2021 - June 2024</p>
-              <p class="description">
-                Foundation in computer science fundamentals including
-                algorithms, data structures, software development, and
-                mathematical foundations of computing. Strong emphasis on
-                logical thinking, abstract mathematics, and problem-solving.
-              </p>
-              <p class="thesis">Thesis: Mesh Grid Networks</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-      <div class="container">
-        <h2 class="section-title">Some Things I've Built</h2>
-
-        <div class="projects-grid">
-          <div class="project-card featured">
-            <div class="project-image-grid">
-              <div class="project-image-item">
-                <img
-                  src="assets/lego-quality-control-original.png"
-                  alt="LEGO Brick with Scratches"
-                />
-                <span class="image-caption">Original scratched LEGO brick</span>
-              </div>
-              <div class="project-image-item">
-                <img
-                  src="assets/lego-quality-control-detection-results.png"
-                  alt="LEGO Brick Scratch Detection Results"
-                />
-                <span class="image-caption"
-                  >Automated scratch detection results</span
-                >
-              </div>
-            </div>
-            <div class="project-content">
-              <div class="project-header">
-                <h3>LEGO Quality Control System</h3>
-                <div class="project-links">
-                  <a
-                    href="https://github.com/MahmoodSeoud/AnomalyDINO"
-                    target="_blank"
-                    class="project-link"
-                  >
-                    <svg
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-                      />
-                    </svg>
-                    GitHub
-                  </a>
-                  <a
-                    href="https://robotelite.sdu.dk/"
-                    target="_blank"
-                    class="project-link"
-                    >Program</a
-                  >
-                </div>
-              </div>
-              <p>
-                Computer vision system for automated scratch detection developed
-                during SDU's Elite Summer School. Worked in a team of 4 students
-                to build an industrial-grade quality control solution using
-                advanced anomaly detection algorithms. The system successfully
-                identifies and highlights surface defects with high precision.
-              </p>
-              <ul class="tech-list">
-                <li>AnomalyDINO</li>
-                <li>Computer Vision</li>
-                <li>Python</li>
-                <li>Machine Learning</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <img
-                src="assets/DISCO_2_orbit_foldout_v2_630_4x3.jpg"
-                alt="DISCOSAT CubeSat in Orbit"
-              />
-            </div>
-            <div class="project-content">
-              <div class="project-header">
-                <h3>CubeSat Camera Controller</h3>
-                <div class="project-links">
-                  <a
-                    href="https://discosat.dk/"
-                    target="_blank"
-                    class="project-link"
-                    >Mission</a
-                  >
-                </div>
-              </div>
-              <p>
-                Embedded C-based camera controller system for CubeSat optical
-                sensors. Handles raw BayerRG image data processing with
-                real-time telemetry capabilities for Denmark's student satellite
-                constellation.
-              </p>
-              <ul class="tech-list">
-                <li>Embedded C</li>
-                <li>Space Tech</li>
-                <li>Real-time Processing</li>
-                <li>Telemetry</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <img
-                src="assets/sysmentor-vmat-simulator-demo.gif"
-                alt="SysMentor VMAT Demo"
-              />
-            </div>
-            <div class="project-content">
-              <div class="project-header">
-                <h3>SysMentor Educational Platform</h3>
-                <div class="project-links">
-                  <a
-                    href="https://github.com/MahmoodSeoud/vmat"
-                    target="_blank"
-                    class="project-link"
-                  >
-                    <svg
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-                      />
-                    </svg>
-                    GitHub
-                  </a>
-                </div>
-              </div>
-              <p>
-                Interactive learning platform for computer systems education
-                featuring simulators and digital exam platforms. Enhances CS
-                education through hands-on simulation experiences.
-              </p>
-              <ul class="tech-list">
-                <li>React</li>
-                <li>WebGL</li>
-                <li>Educational Tech</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Publications Section -->
-    <section id="publications" class="section">
-      <div class="container">
-        <h2 class="section-title">Research & Publications</h2>
-
-        <div class="publication-item">
-          <div class="publication-image">
-            <img
-              src="assets/santa-claus-problem-paper-preview.png"
-              alt="Research Paper Preview"
-            />
-          </div>
-          <div class="publication-content">
-            <h3>
-              Building Towards a Distributed, Dynamic Solution to the Santa
-              Claus Problem
-            </h3>
-            <p class="publication-venue">
-              COPA2024 Conference • San Diego, California • August 2024
-            </p>
-            <p class="publication-authors">Mahmood Seoud & David Marchant</p>
-            <p class="publication-description">
-              Research exploring distributed systems concepts through the
-              classic Santa Claus Problem. Features both centralized and
-              distributed implementations with comprehensive performance
-              analysis and theoretical foundations for dynamic distributed
-              computing solutions.
-            </p>
-            <div class="publication-links">
-              <a
-                href="https://easychair.org/publications/paper/Gv4N"
-                target="_blank"
-                class="publication-link"
-                >View Paper</a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section">
-      <div class="container">
-        <h2 class="section-title">Where I've Worked</h2>
-
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-year">2025 - Present</div>
-            <div class="timeline-content">
-              <h3>
-                Satellite Software Developer
-                <span class="company">@ DISCOSAT</span>
-              </h3>
-              <p>
-                Developing embedded C systems for CubeSat camera controllers,
-                handling raw BayerRG image processing and real-time telemetry
-                for Denmark's student satellite missions. Working with
-                space-grade hardware constraints and mission-critical software
-                requirements.
-              </p>
-              <ul class="tech-list">
-                <li>Embedded C</li>
-                <li>Real-time Systems</li>
-                <li>Space Technology</li>
-                <li>Image Processing</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-year">2022 - Present</div>
-            <div class="timeline-content">
-              <h3>
-                AI Solutions Developer <span class="company">@ PeopleNet</span>
-              </h3>
-              <p>
-                Built and deployed SharePoint-integrated AI chatbot reducing
-                operational costs by 5,000 DKK/month. Led migration from Azure
-                to OpenAI API, improving system performance while reducing
-                infrastructure costs.
-              </p>
-              <ul class="tech-list">
-                <li>React</li>
-                <li>OpenAI API</li>
-                <li>SharePoint</li>
-                <li>Azure Migration</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <script src="script.js"></script>
-  </body>
+<script src="scrollcraft.js"></script>
+<script>ScrollCraft.mount(document.body);</script>
+<script src="bayer.js"></script>
+<script src="downlink.js"></script>
+</body>
 </html>
-
