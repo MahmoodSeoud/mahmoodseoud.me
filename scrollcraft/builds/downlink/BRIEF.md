@@ -101,3 +101,23 @@ the check: the collection span was cut from 4.2 to 3.4 and the develop raised
 from 4.0 to 4.4, because the rail had more scroll room than the peak; and the
 develop now opens on the satellite's lit edge instead of blank cloud, because
 the first macro frame read as a test pattern.
+
+## Revision, 2026-11-21: selection and order
+
+After a survey of the GitHub account and local projects, two full sections were added after the peak and the rail was reordered.
+
+- Order: frame, develop (peak, span 4.4), satDeploy, Circalify, Scratches, rail (CornerTactics, paper, SysMentor, chatbot; span 4.2), record, contact.
+- satDeploy: respect. A photo of the flatsat, then the problem, the tool and the thesis result (25 of 25) in plain prose.
+- Circalify: ease. One wheel on a white mount; the only project with outside users.
+- The peak is unchanged and still has the largest span.
+
+## Revision, 2026-11-21: cut down
+
+The side-scrolling rail is gone. Order is now frame, develop (peak), satDeploy, Circalify, corner kicks, Scratches, record, contact; 11.8 viewport heights. The paper and SysMentor keep one ledger row each. The chatbot stays in the PeopleNet row.
+
+## Revision, 2026-11-21: structure, figure and accent
+
+- The peak now spans 3 viewport heights (was 4.4). It is still the largest span on the page.
+- The top bar carries a resume link beside the email link. Scratches figures alternate sides.
+- The satDeploy figure reads "20%": the share of packets dropped at which every satDeploy upload still arrived intact. It replaced "25 of 25".
+- The accent is a pale ice blue, #8FC7FF (was orange, #F5B55B), including the sweep line in the Bayer sequence.

@@ -73,7 +73,7 @@
       g.imageSmoothingEnabled = true; g.imageSmoothingQuality = 'high';
       g.drawImage(f.rgb, sx, sy, sw, sh, 0, 0, cw, ch);
       g.restore();
-      if (line < ch) { g.fillStyle = '#F5B55B'; g.fillRect(0, line - this.dpr, cw, Math.max(2, this.dpr * 1.5)); }
+      if (line < ch) { g.fillStyle = '#8FC7FF'; g.fillRect(0, line - this.dpr, cw, Math.max(2, this.dpr * 1.5)); }
     }
   };
 
