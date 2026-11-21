@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mahmood Seoud · Satellite camera software and applied AI</title>
-<meta name="description" content="Mahmood Seoud is a computer scientist who writes embedded C for a CubeSat camera controller and builds applied AI tools.">
+<title>Mahmood Seoud · Satellite software and applied AI</title>
+<meta name="description" content="Mahmood Seoud is a computer scientist who writes software for the DISCO-2 student satellite, maintains the Circalify timeline library and builds applied AI tools.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%2306080C'/><rect x='4' y='4' width='11' height='11' fill='%23E5484D'/><rect x='17' y='4' width='11' height='11' fill='%2346A758'/><rect x='4' y='17' width='11' height='11' fill='%2346A758'/><rect x='17' y='17' width='11' height='11' fill='%233E63DD'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,6 +48,8 @@
   }
   .index a[aria-current="true"] { color: var(--sc-ink); box-shadow: inset 0 -2px 0 var(--sc-accent); }
   @media (hover: hover) and (pointer: fine) { .index a:hover { color: var(--sc-ink); } }
+  .bar__links { display: flex; align-items: center; gap: var(--sc-4); white-space: nowrap; }
+  .bar__cv { color: var(--sc-ink); text-underline-offset: 0.3em; text-decoration-color: color-mix(in oklab, var(--sc-ink) 40%, transparent); }
   .mail { color: var(--sc-accent); white-space: nowrap; text-underline-offset: 0.3em; }
   .mail:active { transform: translateY(1px); }
 
@@ -120,8 +122,34 @@
   .cfa i { display: block; aspect-ratio: 1; }
   .cfa i:nth-child(1) { background: #E5484D; } .cfa i:nth-child(2), .cfa i:nth-child(3) { background: #46A758; } .cfa i:nth-child(4) { background: #3E63DD; }
 
-  /* ---- 3. scratches: a wipe is a change of state ------------------------ */
-  .scratch { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 8fr); gap: clamp(2rem, 6vw, 6rem); align-items: center; }
+  /* ---- satDeploy and Circalify: full sections in flow ------------------- */
+  .deploy h2, .wheel h2 { font-size: var(--sc-t-2xl); }
+  .deploy__photo { border-radius: var(--r); overflow: hidden; box-shadow: var(--sc-e3); background: var(--sc-surface); }
+  .deploy__photo img { width: 100%; height: auto; }
+  .deploy figcaption, .wheel figcaption { margin-top: var(--sc-3); }
+  .deploy__grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(2rem, 6vw, 6rem); margin-top: var(--sc-7); align-items: start; }
+  .deploy__text p { color: var(--sc-ink-soft); max-width: 52ch; }
+  .deploy__text p + p { margin-top: var(--sc-4); }
+  .deploy__text h2 + p { margin-top: var(--sc-4); }
+  .deploy__side .figure-num { font-size: clamp(3.2rem, 7vw, 6.5rem); }
+  .deploy__side .label { margin-top: var(--sc-6); }
+  .wheel { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(2rem, 6vw, 6rem); align-items: center; }
+  .wheel__lede { margin-top: var(--sc-4); color: var(--sc-ink-soft); max-width: 40ch; }
+  .wheel .label { margin-top: var(--sc-6); }
+  .wheel .mount { padding: clamp(0.5rem, 1.5vw, 1.25rem); background: #fff; }
+
+  .figure-num { font-family: var(--sc-font-display); font-stretch: 112%; font-weight: 600; font-size: clamp(3.6rem, 9vw, 8rem); line-height: 1; letter-spacing: -0.045em; white-space: nowrap; }
+  .figure-num small { display: block; margin-top: var(--sc-3); font-family: var(--sc-font-text); font-stretch: 100%; font-weight: 400; font-size: var(--sc-t-base); letter-spacing: 0; line-height: 1.4; color: var(--sc-ink-soft); white-space: normal; }
+  .corner { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(2rem, 6vw, 6rem); align-items: center; }
+  .corner h2 { font-size: var(--sc-t-2xl); }
+  .corner__lede { margin-top: var(--sc-4); color: var(--sc-ink-soft); max-width: 44ch; }
+  .corner__lede + .corner__lede { margin-top: var(--sc-4); }
+  .corner .label { margin-top: var(--sc-6); }
+  .corner .mount { padding: clamp(0.5rem, 1.5vw, 1.25rem); background: #fff; }
+  .corner figcaption { margin-top: var(--sc-3); }
+
+  /* ---- scratches: a wipe is a change of state --------------------------- */
+  .scratch { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 5fr); gap: clamp(2rem, 6vw, 6rem); align-items: center; }
   .scratch h2 { font-size: var(--sc-t-2xl); }
   .scratch__lede { margin-top: var(--sc-4); color: var(--sc-ink-soft); max-width: 36ch; }
   .scratch .label { margin-top: var(--sc-6); }
@@ -130,25 +158,7 @@
   .mount img { width: 100%; height: auto; }
   .mount__after { position: absolute; inset: 0; }
   .scratch figcaption { margin-top: var(--sc-3); }
-
-  /* ---- 4. collection: lateral travel ------------------------------------ */
-  .rail { height: 100%; align-items: center; gap: clamp(2.5rem, 7vw, 8rem); padding: var(--bar) var(--sc-gutter) 0; width: max-content; }
-  .rail > * { flex: none; }
-  .rail__lead { width: min(30rem, 80vw); }
-  .rail__lead h2 { font-size: var(--sc-t-3xl); }
-  .rail__lead p { margin-top: var(--sc-5); color: var(--sc-ink-soft); max-width: 30ch; }
-  .obj { width: min(34rem, 82vw); }
-  .obj--wide { width: min(64rem, 82vw); }
-  .obj__media { border-radius: var(--r); overflow: hidden; box-shadow: var(--sc-e3); background: var(--sc-surface); }
-  .obj__media :is(img, video) { width: 100%; height: auto; }
-  .obj__pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sc-4); }
-  .obj .obj__title { margin-top: var(--sc-5); }
-  .obj--paper .obj__media { background: #fff; }
-  .figure-num { font-family: var(--sc-font-display); font-stretch: 112%; font-weight: 600; font-size: clamp(3.6rem, 9vw, 8rem); line-height: 1; letter-spacing: -0.045em; white-space: nowrap; }
-  .figure-num small { display: block; margin-top: var(--sc-3); font-family: var(--sc-font-text); font-stretch: 100%; font-weight: 400; font-size: var(--sc-t-base); letter-spacing: 0; line-height: 1.4; color: var(--sc-ink-soft); white-space: normal; }
-  .rail__end { width: min(22rem, 76vw); padding-right: var(--sc-gutter); }
-  .rail__end p { font-size: var(--sc-t-lg); line-height: 1.35; }
-  .rail__end a { display: inline-block; margin-top: var(--sc-4); }
+  .scratch figure { order: -1; }
 
   /* ---- 5. record: administrative, compressed ---------------------------- */
   .record { padding-block: clamp(3rem, 7vw, 7rem) var(--sc-section); }
@@ -174,19 +184,26 @@
   .close .mail { font-size: var(--sc-t-base); }
   .foot { display: flex; justify-content: space-between; gap: var(--sc-5); padding-block: var(--sc-4); border-top: 1px solid var(--sc-hairline); margin-top: var(--sc-5); }
 
+  @media (min-width: 901px) and (max-width: 1280px) {
+    .bar { gap: var(--sc-4); }
+    .index { gap: 0.85rem; }
+    .index a { font-size: var(--sc-t-xs); }
+  }
+
   /* ---- phone: recomposed, not shrunk ------------------------------------ */
   @media (max-width: 900px) {
     :root { --bar: 5.5rem; }
     .bar { grid-template-columns: 1fr auto; grid-template-rows: 2.9rem 2.6rem; row-gap: 0; }
     .bar__name { grid-row: 1; }
-    .bar > .mail { grid-row: 1; grid-column: 2; padding-block: 0.6rem; }
+    .bar__links { grid-row: 1; grid-column: 2; }
+    .bar__links a { padding-block: 0.6rem; }
     .bar nav { grid-row: 2; grid-column: 1 / -1; margin-inline: calc(-1 * var(--sc-gutter)); overflow-x: auto; scrollbar-width: none; border-top: 1px solid var(--sc-hairline); }
     .bar nav::-webkit-scrollbar { display: none; }
     .index { justify-content: flex-start; gap: 1.4rem; padding-inline: var(--sc-gutter); width: max-content; }
     .index a { padding-block: 0.62rem; }
-    .scratch { grid-template-columns: 1fr; }
-    .scratch figure { order: -1; }
-    .obj__pair { grid-template-columns: 1fr; }
+    .scratch, .wheel, .corner, .deploy__grid { grid-template-columns: 1fr; }
+    .corner figure { order: -1; }
+    .deploy__grid { margin-top: var(--sc-5); }
     .ledger thead { display: none; }
     .ledger tr { display: grid; grid-template-columns: 1fr; padding-block: var(--sc-4); border-top: 1px solid var(--sc-hairline); }
     .ledger td { border: 0; padding: 0; width: auto !important; }
@@ -200,7 +217,7 @@
     .hero__frame { --fx: 0.37; }
     .hero__id { top: calc(var(--bar) + 1.5rem); z-index: 3; }
     .hero__id h1 { font-size: clamp(3rem, 15.5vw, 4.6rem); }
-    .hero__id p { font-size: var(--sc-t-base); margin-top: var(--sc-4); }
+    .hero__id p { font-size: var(--sc-t-base); margin-top: var(--sc-4); max-width: 24ch; text-shadow: 0 1px 14px rgb(2 3 5 / 0.85); }
     .hero__label { left: var(--sc-gutter); right: var(--sc-gutter); width: auto; bottom: 1.25rem; padding: var(--sc-4); }
     .hero__label .label > div:nth-child(n+3) { display: none; }
     .dev__copy { left: var(--sc-gutter); right: var(--sc-gutter); width: auto; top: auto; bottom: 4.75rem; padding: var(--sc-4); }
@@ -215,10 +232,6 @@
   }
   @media (prefers-reduced-motion: reduce) {
     .mount__after { position: static; margin-top: var(--sc-3); }
-    /* The rail becomes a native sideways scroll region, so it must not also hold a pin. */
-    #collection { height: auto !important; }
-    #collection [data-sc-stage] { position: relative; height: auto; padding-block: var(--sc-section); }
-    .rail { padding-top: 0; align-items: flex-start; }
   }
 </style>
 </head>
@@ -230,15 +243,18 @@
     <ul class="index">
       <li><a href="#frame" data-jump>Frame</a></li>
       <li><a href="#develop" data-jump>Develop</a></li>
+      <li><a href="#satdeploy" data-jump>satDeploy</a></li>
+      <li><a href="#circalify" data-jump>Circalify</a></li>
+      <li><a href="#corners" data-jump>Corners</a></li>
       <li><a href="#scratches" data-jump>Scratches</a></li>
-      <li><a href="#sysmentor" data-jump>Simulators</a></li>
-      <li><a href="#paper" data-jump>Paper</a></li>
-      <li><a href="#chatbot" data-jump>Chatbot</a></li>
       <li><a href="#record" data-jump>Record</a></li>
       <li><a href="#maker" data-jump>Contact</a></li>
     </ul>
   </nav>
-  <a class="mail" href="mailto:Mahmoodseoud@gmail.com">Email Mahmood</a>
+  <span class="bar__links">
+    <a class="bar__cv" href="assets/resume.pdf">Résumé</a>
+    <a class="mail" href="mailto:Mahmoodseoud@gmail.com">Email Mahmood</a>
+  </span>
 </header>
 
 <main>
@@ -250,7 +266,7 @@
     </div>
     <div class="hero__id">
       <h1 class="sc-display">Mahmood Seoud</h1>
-      <p>I write the software that runs a satellite camera, and I build AI tools at work.</p>
+      <p>I write software for a student satellite, maintain an open source timeline library, and do machine learning research.</p>
     </div>
     <div class="hero__frame hero__front" aria-hidden="true">
       <img class="plane plane--sat" src="assets/satellite.webp" width="963" height="645" alt="">
@@ -270,7 +286,7 @@
   </section>
 
   <!-- 2 · AWE, the peak: the frame as the sensor records it, developed by scroll. -->
-  <section id="develop" data-sc-act="pin" data-sc-span="4.4">
+  <section id="develop" data-sc-act="pin" data-sc-span="3">
     <div data-sc-stage class="dev">
       <img class="dev__img" src="assets/frame-poster.jpg" width="1600" height="1200" loading="lazy"
            alt="A small satellite with dark solar panels above the North Sea, with Denmark and southern Norway below.">
@@ -298,7 +314,82 @@
     </div>
   </section>
 
-  <!-- 3 · CLARITY: flow + reveal. -->
+  <!-- 3 · RESPECT: flow. The work with the most behind it, told plainly. -->
+  <section class="sc-section" id="satdeploy" data-sc-act="flow">
+    <div class="sc-wrap deploy">
+      <figure data-sc-in>
+        <div class="deploy__photo">
+          <img src="assets/flatsat.jpg" width="1600" height="580" loading="lazy" alt="Circuit boards with heat sinks, bundles of white wiring and two camera lenses on a lab bench.">
+        </div>
+        <figcaption class="caption">The DISCO-2 flatsat at ITU: a copy of the satellite's electronics on a lab bench, used for testing. The two cameras are on the left.</figcaption>
+      </figure>
+      <div class="deploy__grid">
+        <div class="deploy__text" data-sc-in data-sc-stagger="60">
+          <h2 class="sc-display">satDeploy</h2>
+          <p>After DISCO-2 launched, we could not say for certain which versions of our software were running on it. Updates had been copied over by hand, and rebuilding the same setup on the ground took weeks.</p>
+          <p>I wrote satDeploy so that does not happen again. Every upload to the satellite is versioned, checked against a SHA-256 hash, and can be rolled back with one command. If a transfer does not finish during one pass over the ground station, it continues on the next pass.</p>
+          <p>My MSc thesis measured the problem. I built an instrument that drops a set share of the packets on the flatsat link and then checks the file that arrived. With the existing upload path, every one of the 25 uploads over a lossy link arrived corrupt and was still reported as a success. In the same test, satDeploy completed every upload at up to 20% packet loss, and two of three at 30%.</p>
+        </div>
+        <div class="deploy__side" data-sc-in>
+          <p class="figure-num">20%
+            <small>of the packets dropped on purpose, and every file satDeploy uploaded still arrived intact.</small></p>
+          <dl class="label">
+            <div><dt>What</dt><dd>Versioned software deployment for small satellites, with hash checks and rollback</dd></div>
+            <div><dt>For</dt><dd>DISCO-2, and my MSc thesis at ITU, 2026</dd></div>
+            <div><dt>Medium</dt><dd>C, libcsp, CAN bus, SQLite</dd></div>
+            <div><dt>Link</dt><dd><a href="https://github.com/MahmoodSeoud/satDeploy">satDeploy</a><a href="https://github.com/MahmoodSeoud/csp-linksim">Thesis instrument</a></dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · EASE: flow. Something other people use. -->
+  <section class="sc-section" id="circalify" data-sc-act="flow">
+    <div class="sc-wrap wheel">
+      <figure>
+        <div class="mount" data-sc-tilt="4">
+          <img src="assets/circalify-wheel.png" width="750" height="760" loading="lazy" alt="A circular timeline of one year: month names around the edge, week numbers inside them, and coloured rings for sprints, project phases and yearly goals.">
+        </div>
+        <figcaption class="caption">An example year drawn by the library.</figcaption>
+      </figure>
+      <div data-sc-in data-sc-stagger="60">
+        <h2 class="sc-display">Circalify</h2>
+        <p class="wheel__lede">A JavaScript library that draws a year as a wheel, with the months around the edge and one ring for each kind of activity. It has no dependencies and draws with SVG. It is published on npm, and it is the one project here that people I have never met use.</p>
+        <dl class="label">
+          <div><dt>What</dt><dd>Library for circular year timelines</dd></div>
+          <div><dt>For</dt><dd>Open source under the MIT licence, 2025 to present</dd></div>
+          <div><dt>Medium</dt><dd>JavaScript, SVG</dd></div>
+          <div><dt>Link</dt><dd><a href="https://github.com/MahmoodSeoud/circalify">GitHub</a><a href="https://www.npmjs.com/package/circalify">npm</a><a href="https://mahmoodseoud.github.io/circalify">Website</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · CURIOSITY: flow. A question, a failed attempt, then a modest result. -->
+  <section class="sc-section" id="corners" data-sc-act="flow">
+    <div class="sc-wrap corner">
+      <div data-sc-in data-sc-stagger="60">
+        <h2 class="sc-display">Corner kicks</h2>
+        <p class="corner__lede">Can you tell from where the players are standing whether a corner kick will end in a shot? I tried it first on broadcast video, with 4,836 clips, and the model did no better than a coin flip.</p>
+        <p class="corner__lede">Then I used player tracking data from 143 corners and a graph neural network. That worked a little: an AUC of 0.687, where 0.5 is chance. Most of what the model picked up was how fast the players were moving.</p>
+        <dl class="label">
+          <div><dt>What</dt><dd>Predicting whether a corner kick leads to a shot</dd></div>
+          <div><dt>For</dt><dd>Research project, 2026</dd></div>
+          <div><dt>Medium</dt><dd>Python, graph neural networks, broadcast video, tracking data</dd></div>
+          <div><dt>Link</dt><dd><a href="https://github.com/MahmoodSeoud/CornerTactics">GitHub</a></dd></div>
+        </dl>
+      </div>
+      <figure>
+        <div class="mount" data-sc-tilt="4">
+          <img src="assets/corner-kick.png" width="1400" height="1531" loading="lazy" alt="Diagram of one half of a football pitch during a corner kick. Attackers and defenders are dots crowded in the penalty area, shaded by how likely the model thinks each attacker is to receive the ball. A star marks the player who received it and a green diamond marks the model's pick, a few metres away.">
+        </div>
+        <figcaption class="caption">One corner from the tracking data. The star is the player who received the ball. The green diamond is the player the model picked.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 6 · CLARITY: flow + reveal. -->
   <section class="sc-section" id="scratches" data-sc-act="flow">
     <div class="sc-wrap scratch">
       <div data-sc-in data-sc-stagger="60">
@@ -308,7 +399,7 @@
           <div><dt>What</dt><dd>Automatic scratch detection for LEGO quality control</dd></div>
           <div><dt>For</dt><dd>SDU Elite Robotics Summer School, August 2025. Team of four</dd></div>
           <div><dt>Medium</dt><dd>AnomalyDINO, Python, computer vision</dd></div>
-          <div><dt>Link</dt><dd><a href="https://github.com/MahmoodSeoud/AnomalyDINO">GitHub</a><a href="https://robotelite.sdu.dk/">Programme</a></dd></div>
+          <div><dt>Link</dt><dd><a href="https://robotelite.sdu.dk/">Programme</a></dd></div>
         </dl>
       </div>
       <figure>
@@ -324,86 +415,26 @@
     </div>
   </section>
 
-  <!-- 4 · APPETITE: pan. Lead and end plates are rail items so the travel has room. -->
-  <section id="collection" data-sc-act="pan" data-sc-span="3.4">
-    <div data-sc-stage>
-      <div class="rail" data-sc-pan="0.04">
-        <div class="rail__lead">
-          <h2 class="sc-display">Other things I've built</h2>
-          <p>Simulators for teaching computer systems, a conference paper, and a chatbot I built at PeopleNet.</p>
-        </div>
-
-        <article class="obj obj--wide" id="sysmentor">
-          <div class="obj__pair">
-            <div class="obj__media" data-sc-tilt="5">
-              <video muted loop playsinline preload="none" poster="assets/sysmentor-cache-visualization.jpg" data-src="assets/sysmentor-cache-visualization.mp4"
-                     width="800" height="450" aria-label="Screen recording of a cache simulator stepping through memory accesses."></video>
-            </div>
-            <div class="obj__media" data-sc-tilt="5">
-              <video muted loop playsinline preload="none" poster="assets/sysmentor-vmat-simulator.jpg" data-src="assets/sysmentor-vmat-simulator.mp4"
-                     width="800" height="450" aria-label="Screen recording of a virtual memory address translation simulator."></video>
-            </div>
-          </div>
-          <h3 class="obj__title">SysMentor</h3>
-          <dl class="label">
-            <div><dt>What</dt><dd>Simulators and digital exams for learning how computers work</dd></div>
-            <div><dt>For</dt><dd>Computer systems courses</dd></div>
-            <div><dt>Medium</dt><dd>React, WebGL</dd></div>
-            <div><dt>Link</dt><dd><a href="https://github.com/MahmoodSeoud/vmat">GitHub</a></dd></div>
-          </dl>
-        </article>
-
-        <article class="obj obj--paper" id="paper">
-          <div class="obj__media" data-sc-tilt="5">
-            <img src="assets/paper.jpg" width="812" height="422" loading="lazy" alt="First page of the paper in Kalpa Publications in Computing, volume 20, 2024.">
-          </div>
-          <h3 class="obj__title">Building Towards a Distributed, Dynamic Solution to the Santa Claus Problem</h3>
-          <dl class="label">
-            <div><dt>What</dt><dd>Centralised and distributed implementations, with performance analysis</dd></div>
-            <div><dt>For</dt><dd>COPA 2024, San Diego. With David Marchant</dd></div>
-            <div><dt>Medium</dt><dd>Conference paper, distributed systems</dd></div>
-            <div><dt>Link</dt><dd><a href="https://easychair.org/publications/paper/Gv4N">Read the paper</a></dd></div>
-          </dl>
-        </article>
-
-        <article class="obj" id="chatbot">
-          <p class="figure-num"><span data-sc-count="0 5,000" data-sc-count-at="0.56 0.74">5,000</span> DKK
-            <small>lower operating costs per month.</small></p>
-          <h3 class="obj__title">SharePoint AI chatbot</h3>
-          <dl class="label">
-            <div><dt>What</dt><dd>AI chatbot integrated with SharePoint</dd></div>
-            <div><dt>For</dt><dd>PeopleNet, 2022 to present</dd></div>
-            <div><dt>Medium</dt><dd>React, OpenAI API (moved over from Azure)</dd></div>
-            <div><dt>Link</dt><dd>Internal deployment</dd></div>
-          </dl>
-        </article>
-
-        <div class="rail__end">
-          <p>My résumé has more detail on all of this.</p>
-          <a href="assets/resume.pdf">Résumé (PDF)</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5 · TRUST: flow. Dates and institutions, no devices beyond the entry fade. -->
+  <!-- 7 · TRUST: flow. Dates and institutions, no devices beyond the entry fade. -->
   <section class="record" id="record" data-sc-act="flow">
     <div class="sc-wrap" data-sc-in>
       <h2 class="sc-display">Record</h2>
       <table class="ledger">
         <thead><tr><th scope="col">When</th><th scope="col">What</th><th scope="col">Where</th><th scope="col">Note</th></tr></thead>
         <tbody>
-          <tr><td>2025 to present</td><td>Satellite Software Developer</td><td><a href="https://discosat.dk/">DISCOSAT</a></td><td>Camera controllers for Denmark's student satellite missions.</td></tr>
+          <tr><td>2025 to present</td><td>Satellite Software Developer</td><td><a href="https://discosat.dk/">DISCOSAT</a></td><td>Camera controller and deployment software for the DISCO-2 student satellite.</td></tr>
           <tr><td>August 2025</td><td>Elite Robotics Summer School</td><td><a href="https://robotelite.sdu.dk/">University of Southern Denmark</a></td><td>A three week programme with 50 students from five continents.</td></tr>
-          <tr><td>2024 to 2026</td><td>MSc Computer Science</td><td><a href="https://www.itu.dk/">IT University of Copenhagen</a></td><td>Distributed systems, artificial intelligence, software engineering.</td></tr>
+          <tr><td>2024 to 2026</td><td>MSc Computer Science</td><td><a href="https://www.itu.dk/">IT University of Copenhagen</a></td><td>Thesis: Measuring Software-Upload Integrity under Loss on the CubeSat Space Protocol.</td></tr>
           <tr><td>2022 to present</td><td>AI Solutions Developer</td><td>PeopleNet</td><td>Built the SharePoint chatbot and led the migration from Azure to the OpenAI API.</td></tr>
+          <tr><td>2024</td><td>Conference paper, COPA 2024</td><td><a href="https://easychair.org/publications/paper/Gv4N">Read the paper</a></td><td>Building Towards a Distributed, Dynamic Solution to the Santa Claus Problem. With David Marchant.</td></tr>
+          <tr><td>2023 to 2025</td><td>SysMentor</td><td><a href="https://github.com/MahmoodSeoud/VMAT">GitHub</a></td><td>Simulators for learning virtual memory and caches, built with a fellow student.</td></tr>
           <tr><td>2021 to 2024</td><td>BSc Computer Science</td><td><a href="https://www.ku.dk/english/">University of Copenhagen</a></td><td>Thesis: Mesh Grid Networks.</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
-  <!-- 6 · WARMTH: the close. Nothing here is cued, so the last screen always holds. -->
+  <!-- 8 · WARMTH: the close. Nothing here is cued, so the last screen always holds. -->
   <section id="maker" data-sc-act="pin" data-sc-span="1.35">
     <div data-sc-stage class="close">
       <div class="close__body">
@@ -413,10 +444,10 @@
         </figure>
         <div>
           <h2 class="sc-display">Get in touch</h2>
-          <p class="close__lede">That's me, run through the same simulation as the satellite picture. If you want to talk about satellites, embedded systems or AI, send me an email.</p>
+          <p class="close__lede">That's me, run through the same simulation as the satellite picture. If you want to talk about satellites, embedded systems or machine learning, send me an email.</p>
           <dl class="label">
             <div><dt>What</dt><dd>Mahmood Seoud, computer scientist</dd></div>
-            <div><dt>For</dt><dd>Space technology and applied AI</dd></div>
+            <div><dt>For</dt><dd>Satellite software, open source, machine learning</dd></div>
             <div><dt>Medium</dt><dd>Embedded C, Python, React</dd></div>
             <div><dt>Link</dt><dd><a class="mail" href="mailto:Mahmoodseoud@gmail.com">Email Mahmood</a></dd></div>
           </dl>

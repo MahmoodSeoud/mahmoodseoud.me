@@ -147,20 +147,9 @@
   function docTop(el) { return el.getBoundingClientRect().top + window.scrollY; }
 
   function measure() {
-    var vh = window.innerHeight;
-    var panAct = $('#collection'), rail = $('.rail');
-    var over = Math.max(1, rail.scrollWidth - window.innerWidth);
     targets = links.map(function (a) {
       var el = $(a.getAttribute('href'));
-      var inRail = rail.contains(el);
-      var y;
-      if (inRail && !reduce) {
-        var frac = clamp((el.offsetLeft - parseFloat(getComputedStyle(rail).paddingLeft)) / over, 0, 1);
-        y = docTop(panAct) + frac * (panAct.offsetHeight - vh);
-      } else {
-        y = docTop(inRail ? panAct : el);
-      }
-      return { a: a, el: el, y: Math.round(y), inRail: inRail };
+      return { a: a, el: el, y: Math.round(docTop(el)) };
     });
   }
 
@@ -182,10 +171,6 @@
       if (!t) return;
       e.preventDefault();
       window.scrollTo({ top: t.y, behavior: reduce ? 'auto' : 'smooth' });
-      if (t.inRail && reduce) {
-        var stage = $('#collection [data-sc-stage]');
-        stage.scrollLeft = t.el.offsetLeft - parseFloat(getComputedStyle($('.rail')).paddingLeft);
-      }
       history.replaceState(null, '', a.getAttribute('href'));
       t.el.setAttribute('tabindex', '-1'); t.el.focus({ preventScroll: true });
     });
@@ -220,21 +205,6 @@
       if (devView && devView.frame) readSite();
     });
     dc.addEventListener('pointerleave', function () { pointer = null; readout.textContent = ''; });
-  }
-
-  /* Demo recordings play only while they are on screen, and never under reduced motion. */
-  var vids = document.querySelectorAll('video[data-src]');
-  if (reduce) {
-    vids.forEach(function (v) { v.src = v.dataset.src; v.controls = true; });
-  } else if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        var v = e.target;
-        if (e.isIntersecting) { if (!v.src) v.src = v.dataset.src; var p = v.play(); if (p && p.catch) p.catch(function () {}); }
-        else v.pause();
-      });
-    }, { threshold: 0.35 });
-    vids.forEach(function (v) { io.observe(v); });
   }
 
   /* Build the frames. Until they exist the plain images stand in. */
