@@ -90,7 +90,7 @@
     background: linear-gradient(to top, var(--sc-canvas), color-mix(in oklab, var(--sc-canvas) 60%, transparent) 40%, transparent); }
   .hero__id { position: absolute; z-index: 1; left: var(--sc-gutter); right: var(--sc-gutter); top: calc(var(--bar) + clamp(2rem, 9vh, 6rem)); }
   .hero__id h1 { font-size: clamp(3.3rem, 8.6vw, 9.25rem); line-height: 0.92; letter-spacing: -0.04em; }
-  .hero__id p { margin-top: var(--sc-5); font-size: var(--sc-t-lg); line-height: 1.4; max-width: 24ch; color: var(--sc-ink); }
+  .hero__id p { margin-top: var(--sc-5); font-size: var(--sc-t-lg); line-height: 1.4; max-width: 30ch; color: var(--sc-ink); }
   .hero__front { z-index: 2; }
   .hero__label { position: absolute; z-index: 5; right: var(--sc-gutter); bottom: clamp(1.5rem, 7vh, 4rem); width: min(25rem, calc(100vw - 2 * var(--sc-gutter))); }
 
@@ -235,7 +235,7 @@
       <li><a href="#paper" data-jump>Paper</a></li>
       <li><a href="#chatbot" data-jump>Chatbot</a></li>
       <li><a href="#record" data-jump>Record</a></li>
-      <li><a href="#maker" data-jump>Maker</a></li>
+      <li><a href="#maker" data-jump>Contact</a></li>
     </ul>
   </nav>
   <a class="mail" href="mailto:Mahmoodseoud@gmail.com">Email Mahmood</a>
@@ -250,7 +250,7 @@
     </div>
     <div class="hero__id">
       <h1 class="sc-display">Mahmood Seoud</h1>
-      <p>Computer scientist. Satellite camera software and applied AI.</p>
+      <p>I write the software that runs a satellite camera, and I build AI tools at work.</p>
     </div>
     <div class="hero__frame hero__front" aria-hidden="true">
       <img class="plane plane--sat" src="assets/satellite.webp" width="963" height="645" alt="">
@@ -278,21 +278,21 @@
 
       <div class="dev__copy plate at-bl" data-sc-cue="0 0.2 0">
         <h2 class="sc-display">This is what a camera sensor records.</h2>
-        <p><span class="cfa" aria-hidden="true"><i></i><i></i><i></i><i></i></span>One colour per photosite. Red, green, green, blue, repeated. Nobody has a picture yet.</p>
+        <p><span class="cfa" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Each pixel on a sensor only measures one colour: red, green or blue, in a repeating pattern with twice as many greens. This is the picture from the top of the page stored that way, zoomed in far enough to see the pixels.</p>
       </div>
       <div class="dev__copy plate at-tr" data-sc-cue="0.14 0.47 0.06 0.06">
-        <p><strong>Pull back and it is the same frame from the top of this page,</strong> with two thirds of its colour never measured.</p>
+        <p>Zoomed out you can recognise the picture again. It looks dark and green because every pixel still has only one of its three colour values.</p>
       </div>
       <div class="dev__copy plate at-bl" data-sc-cue="0.42 0.84">
-        <p><strong>The rest is arithmetic.</strong> Each missing value is worked out from the neighbours that did measure it, one row after another.</p>
+        <p>To get a normal picture, the two missing colours at each pixel are estimated by averaging the neighbouring pixels that did measure them. The line moving down the frame is that step being applied.</p>
       </div>
       <div class="dev__copy plate at-br" data-sc-cue="0.82 1 0.05 0.03">
-        <h2 class="sc-display">Developed.</h2>
-        <p>Getting raw BayerRG frames off a sensor and down to the ground, with telemetry, is what I write for DISCOSAT. In embedded C, for hardware nobody can reach to fix.</p>
+        <h2 class="sc-display">The finished frame</h2>
+        <p>At DISCOSAT I work on the camera controller, which is written in embedded C. It handles raw BayerRG frames like this one and sends telemetry in real time.</p>
       </div>
 
       <p class="dev__note caption">
-        <span>Simulation. The mission render is resampled to a 1280 by 960 BayerRG mosaic in your browser and rebuilt by bilinear interpolation. Not flight data, not flight code.</span>
+        <span>This is a simulation that runs in your browser on the mission render, at 1280 by 960 pixels with bilinear interpolation. It is not real flight data and it is not the code on the satellite.</span>
         <output class="dev__readout" id="dev-readout" aria-hidden="true"></output>
       </p>
     </div>
@@ -303,7 +303,7 @@
     <div class="sc-wrap scratch">
       <div data-sc-in data-sc-stagger="60">
         <h2 class="sc-display">Scratches</h2>
-        <p class="scratch__lede">A camera looks at a brick. The detector marks what a person on a production line would have to squint for.</p>
+        <p class="scratch__lede">This system takes a photo of a LEGO brick and highlights the scratches on its surface. I built it with three other students during the summer school at SDU.</p>
         <dl class="label">
           <div><dt>What</dt><dd>Automatic scratch detection for LEGO quality control</dd></div>
           <div><dt>For</dt><dd>SDU Elite Robotics Summer School, August 2025. Team of four</dd></div>
@@ -319,7 +319,7 @@
                  alt="The same brick with the two scratched regions highlighted in yellow by the detector.">
           </div>
         </div>
-        <figcaption class="caption">The camera image, then the detector's anomaly map laid over it.</figcaption>
+        <figcaption class="caption">The photo of the brick, and the same photo with the detected scratches marked in yellow.</figcaption>
       </figure>
     </div>
   </section>
@@ -329,8 +329,8 @@
     <div data-sc-stage>
       <div class="rail" data-sc-pan="0.04">
         <div class="rail__lead">
-          <h2 class="sc-display">Also in the collection</h2>
-          <p>Teaching simulators, a conference paper and a chatbot that pays for itself.</p>
+          <h2 class="sc-display">Other things I've built</h2>
+          <p>Simulators for teaching computer systems, a conference paper, and a chatbot I built at PeopleNet.</p>
         </div>
 
         <article class="obj obj--wide" id="sysmentor">
@@ -368,18 +368,18 @@
 
         <article class="obj" id="chatbot">
           <p class="figure-num"><span data-sc-count="0 5,000" data-sc-count-at="0.56 0.74">5,000</span> DKK
-            <small>saved every month in operating costs.</small></p>
+            <small>lower operating costs per month.</small></p>
           <h3 class="obj__title">SharePoint AI chatbot</h3>
           <dl class="label">
-            <div><dt>What</dt><dd>An assistant that answers from a company's own SharePoint</dd></div>
+            <div><dt>What</dt><dd>AI chatbot integrated with SharePoint</dd></div>
             <div><dt>For</dt><dd>PeopleNet, 2022 to present</dd></div>
-            <div><dt>Medium</dt><dd>React, OpenAI API. Migrated off Azure</dd></div>
+            <div><dt>Medium</dt><dd>React, OpenAI API (moved over from Azure)</dd></div>
             <div><dt>Link</dt><dd>Internal deployment</dd></div>
           </dl>
         </article>
 
         <div class="rail__end">
-          <p>The whole record fits on one page.</p>
+          <p>My résumé has more detail on all of this.</p>
           <a href="assets/resume.pdf">Résumé (PDF)</a>
         </div>
       </div>
@@ -394,9 +394,9 @@
         <thead><tr><th scope="col">When</th><th scope="col">What</th><th scope="col">Where</th><th scope="col">Note</th></tr></thead>
         <tbody>
           <tr><td>2025 to present</td><td>Satellite Software Developer</td><td><a href="https://discosat.dk/">DISCOSAT</a></td><td>Camera controllers for Denmark's student satellite missions.</td></tr>
-          <tr><td>August 2025</td><td>Elite Robotics Summer School</td><td><a href="https://robotelite.sdu.dk/">University of Southern Denmark</a></td><td>Three weeks. 50 students from five continents.</td></tr>
+          <tr><td>August 2025</td><td>Elite Robotics Summer School</td><td><a href="https://robotelite.sdu.dk/">University of Southern Denmark</a></td><td>A three week programme with 50 students from five continents.</td></tr>
           <tr><td>2024 to 2026</td><td>MSc Computer Science</td><td><a href="https://www.itu.dk/">IT University of Copenhagen</a></td><td>Distributed systems, artificial intelligence, software engineering.</td></tr>
-          <tr><td>2022 to present</td><td>AI Solutions Developer</td><td>PeopleNet</td><td>Built the chatbot. Led the move from Azure to the OpenAI API.</td></tr>
+          <tr><td>2022 to present</td><td>AI Solutions Developer</td><td>PeopleNet</td><td>Built the SharePoint chatbot and led the migration from Azure to the OpenAI API.</td></tr>
           <tr><td>2021 to 2024</td><td>BSc Computer Science</td><td><a href="https://www.ku.dk/english/">University of Copenhagen</a></td><td>Thesis: Mesh Grid Networks.</td></tr>
         </tbody>
       </table>
@@ -412,8 +412,8 @@
           <canvas id="maker-canvas" aria-hidden="true"></canvas>
         </figure>
         <div>
-          <h2 class="sc-display">The maker</h2>
-          <p class="close__lede">Same sensor pattern, same arithmetic. Write to me about satellites, embedded systems or applied AI.</p>
+          <h2 class="sc-display">Get in touch</h2>
+          <p class="close__lede">That's me, run through the same simulation as the satellite picture. If you want to talk about satellites, embedded systems or AI, send me an email.</p>
           <dl class="label">
             <div><dt>What</dt><dd>Mahmood Seoud, computer scientist</dd></div>
             <div><dt>For</dt><dd>Space technology and applied AI</dd></div>
@@ -423,7 +423,7 @@
         </div>
       </div>
       <footer class="foot caption">
-        <span>Every picture here is Mahmood's own. The Bayer simulation runs in your browser.</span>
+        <span>The Bayer simulation on this page runs in your browser. Satellite render from DISCOSAT.</span>
         <span><a href="https://www.linkedin.com/in/mahmoodmohammedseoud/">LinkedIn</a> · <a href="https://github.com/MahmoodSeoud">GitHub</a> · <a href="assets/resume.pdf">Résumé</a></span>
       </footer>
     </div>
